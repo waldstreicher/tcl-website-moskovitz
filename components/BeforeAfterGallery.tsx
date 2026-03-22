@@ -15,12 +15,12 @@ const stagger = {
 };
 
 const beforeAfterImages = [
-  { before: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80', after: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80', area: 'Abdomen' },
-  { before: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=80', after: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80', area: 'Waist & Hips' },
-  { before: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80', after: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=400&q=80', area: 'Arms' },
-  { before: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80', after: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80', area: 'Back' },
-  { before: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=80', after: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80', area: 'Thighs' },
-  { before: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80', after: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=400&q=80', area: 'Chin' },
+  { before: '/abdomen-before-after.jpg', after: '/abdomen-before-after.jpg', area: 'Abdomen', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/hips-before-after.jpg', after: '/hips-before-after.jpg', area: 'Waist & Hips', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/arms-before-after.jpg', after: '/arms-before-after.jpg', area: 'Arms', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/back-before-after.jpg', after: '/back-before-after.jpg', area: 'Back', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/thighs-before-after.jpg', after: '/thighs-before-after.jpg', area: 'Thighs', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/chin-before-after.jpg', after: '/chin-before-after.jpg', area: 'Chin', beforePos: 'left center', afterPos: 'right center' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
@@ -47,12 +47,12 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
       >
         {/* After image (full) */}
         <div className="absolute inset-0">
-          <Image src={item.after} alt={`After TCL treatment — ${item.area}`} fill className="object-cover" />
+          <Image src={item.after} alt={`After TCL treatment — ${item.area}`} fill className="object-cover" style={{ objectPosition: item.afterPos ?? 'center' }} />
           <div className="absolute top-2 right-2 bg-tcl-gold text-white text-xs px-2 py-1 rounded">After</div>
         </div>
         {/* Before image (clipped) */}
         <div className="absolute inset-0 overflow-hidden" style={{ width: `${revealed}%` }}>
-          <Image src={item.before} alt={`Before TCL treatment — ${item.area}`} fill className="object-cover" />
+          <Image src={item.before} alt={`Before TCL treatment — ${item.area}`} fill className="object-cover" style={{ objectPosition: item.beforePos ?? 'center' }} />
           <div className="absolute top-2 left-2 bg-tcl-dark/70 text-white text-xs px-2 py-1 rounded">Before</div>
         </div>
         {/* Divider */}

@@ -9,17 +9,21 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-tcl-dark">
       {/* Background image (right side fill on desktop) */}
-      <div className="absolute inset-0 lg:left-1/2">
+      <div className="absolute inset-0 lg:left-[45%]">
         <Image
-          src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=1400&q=80"
-          alt="Confident woman with natural contours"
+          src="/hero-woman.jpg"
+          alt="Confident, naturally contoured woman after TCL body contouring"
           fill
           priority
-          className="object-cover object-center opacity-70"
+          className="object-cover object-[center_20%]"
           data-slot="hero-background"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-tcl-dark via-tcl-dark/80 to-transparent lg:from-tcl-dark lg:via-tcl-dark/60 lg:to-transparent" />
+        {/* Gradient: strong dark on left (text area), fades to transparent on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-tcl-dark/95 via-tcl-dark/40 to-transparent" />
       </div>
+
+      {/* Full-page dark overlay for mobile */}
+      <div className="absolute inset-0 bg-tcl-dark/60 lg:hidden" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-0 w-full">
