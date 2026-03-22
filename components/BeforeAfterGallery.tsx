@@ -13,9 +13,11 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-// Combined images: single side-by-side file, left = Before, right = After
-// Separate images: beforeSrc + afterSrc as individual files
-const beforeAfterImages = [
+type CombinedImage = { src: string; area: string; yPos?: string; bgSize?: string };
+type SeparateImage = { beforeSrc: string; afterSrc: string; area: string };
+type GalleryItem = CombinedImage | SeparateImage;
+
+const beforeAfterImages: GalleryItem[] = [
   { src: '/abdomen-before-after.jpg', area: 'Abdomen' },
   { src: '/hips-before-after.jpg',    area: 'Waist & Hips' },
   { src: '/arms-before-after.jpg',    area: 'Arms' },
@@ -24,17 +26,20 @@ const beforeAfterImages = [
   { beforeSrc: '/chin-before.jpg', afterSrc: '/chin-after.jpg', area: 'Chin' },
 ];
 
-function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
+function BeforeAfterCard({ item, index }: { item: GalleryItem; index: number }) {
   const [revealed, setRevealed] = useState(95);
 
   const isSeparate = 'beforeSrc' in item;
-  const yPos   = ('yPos'   in item ? item.yPos   : undefined) ?? '50%';
-  const bgSize = ('bgSize' in item ? item.bgSize : undefined) ?? '200% auto';
+  const yPos   = !isSeparate ? (item.yPos  ?? '50%')       : '50%';
+  const bgSize = !isSeparate ? (item.bgSize ?? '200% auto') : 'cover';
 
   const handleMove = (clientX: number, rect: DOMRect) => {
     const pct = ((clientX - rect.left) / rect.width) * 100;
     setRevealed(Math.max(5, Math.min(95, pct)));
   };
+
+  const afterBg  = isSeparate ? item.afterSrc  : item.src;
+  const beforeBg = isSeparate ? item.beforeSrc : item.src;
 
   return (
     <motion.div
@@ -47,18 +52,13 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
         onTouchMove={(e) => handleMove(e.touches[0].clientX, e.currentTarget.getBoundingClientRect())}
         data-slot={`before-after-${index + 1}`}
       >
-        {/* ── After image (always full width underneath) ── */}
+        {/* After image — full width underneath */}
         <div
           className="absolute inset-0"
-          style={isSeparate ? {
-            backgroundImage: `url(${'afterSrc' in item ? item.afterSrc : ''})`,
-            backgroundSize: 'cover',
-            backgroundPosition: '50% 50%',
-            backgroundRepeat: 'no-repeat',
-          } : {
-            backgroundImage: `url(${'src' in item ? item.src : ''})`,
-            backgroundSize: bgSize,
-            backgroundPosition: `100% ${yPos}`,
+          style={{
+            backgroundImage: `url(${afterBg})`,
+            backgroundSize: isSeparate ? 'cover' : bgSize,
+            backgroundPosition: isSeparate ? '50% 50%' : `100% ${yPos}`,
             backgroundRepeat: 'no-repeat',
           }}
         />
@@ -66,19 +66,13 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
           After
         </div>
 
-        {/* ── Before image (clipped by clip-path, reveals as slider moves right) ── */}
+        {/* Before image — clipped by clip-path to reveal on drag */}
         <div
           className="absolute inset-0"
-          style={isSeparate ? {
-            backgroundImage: `url(${'beforeSrc' in item ? item.beforeSrc : ''})`,
-            backgroundSize: 'cover',
-            backgroundPosition: '50% 50%',
-            backgroundRepeat: 'no-repeat',
-            clipPath: `inset(0 ${100 - revealed}% 0 0)`,
-          } : {
-            backgroundImage: `url(${'src' in item ? item.src : ''})`,
-            backgroundSize: bgSize,
-            backgroundPosition: `0% ${yPos}`,
+          style={{
+            backgroundImage: `url(${beforeBg})`,
+            backgroundSize: isSeparate ? 'cover' : bgSize,
+            backgroundPosition: isSeparate ? '50% 50%' : `0% ${yPos}`,
             backgroundRepeat: 'no-repeat',
             clipPath: `inset(0 ${100 - revealed}% 0 0)`,
           }}
