@@ -13,24 +13,23 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-// All images are side-by-side combined photos: left half = Before, right half = After
-// yPos: vertical anchor for backgroundPosition (default '50%' = centered)
-// bgSize: background-size override (default '200% auto' = exact 50/50 split)
+// Combined images: single side-by-side file, left = Before, right = After
+// Separate images: beforeSrc + afterSrc as individual files
 const beforeAfterImages = [
   { src: '/abdomen-before-after.jpg', area: 'Abdomen' },
   { src: '/hips-before-after.jpg',    area: 'Waist & Hips' },
   { src: '/arms-before-after.jpg',    area: 'Arms' },
   { src: '/back-before-after.jpg',    area: 'Back' },
   { src: '/thighs-before-after.jpg',  area: 'Thighs' },
-  { src: '/chin-before-after.jpg',    area: 'Chin', yPos: '35%', bgSize: '130% auto' },
+  { beforeSrc: '/chin-before.jpg', afterSrc: '/chin-after.jpg', area: 'Chin' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
-  // Start at 95 so the Before image is fully visible; drag left to reveal After
   const [revealed, setRevealed] = useState(95);
 
-  const yPos   = item.yPos  ?? '50%';
-  const bgSize = item.bgSize ?? '200% auto';
+  const isSeparate = 'beforeSrc' in item;
+  const yPos   = ('yPos'   in item ? item.yPos   : undefined) ?? '50%';
+  const bgSize = ('bgSize' in item ? item.bgSize : undefined) ?? '200% auto';
 
   const handleMove = (clientX: number, rect: DOMRect) => {
     const pct = ((clientX - rect.left) / rect.width) * 100;
@@ -48,15 +47,16 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
         onTouchMove={(e) => handleMove(e.touches[0].clientX, e.currentTarget.getBoundingClientRect())}
         data-slot={`before-after-${index + 1}`}
       >
-        {/*
-          After image — right half of combined photo.
-          backgroundSize: bgSize makes the image twice as wide as the container,
-          backgroundPosition: '100% yPos' anchors it so we see the RIGHT half.
-        */}
+        {/* ── After image (always full width underneath) ── */}
         <div
           className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${item.src})`,
+          style={isSeparate ? {
+            backgroundImage: `url(${'afterSrc' in item ? item.afterSrc : ''})`,
+            backgroundSize: 'cover',
+            backgroundPosition: '50% 50%',
+            backgroundRepeat: 'no-repeat',
+          } : {
+            backgroundImage: `url(${'src' in item ? item.src : ''})`,
             backgroundSize: bgSize,
             backgroundPosition: `100% ${yPos}`,
             backgroundRepeat: 'no-repeat',
@@ -66,16 +66,17 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
           After
         </div>
 
-        {/*
-          Before image — left half of combined photo.
-          Same backgroundSize trick but backgroundPosition: '0% 50%' shows the LEFT half.
-          clip-path instead of width-clipping so the background crop stays fixed
-          regardless of how much of the panel is visible.
-        */}
+        {/* ── Before image (clipped by clip-path, reveals as slider moves right) ── */}
         <div
           className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${item.src})`,
+          style={isSeparate ? {
+            backgroundImage: `url(${'beforeSrc' in item ? item.beforeSrc : ''})`,
+            backgroundSize: 'cover',
+            backgroundPosition: '50% 50%',
+            backgroundRepeat: 'no-repeat',
+            clipPath: `inset(0 ${100 - revealed}% 0 0)`,
+          } : {
+            backgroundImage: `url(${'src' in item ? item.src : ''})`,
             backgroundSize: bgSize,
             backgroundPosition: `0% ${yPos}`,
             backgroundRepeat: 'no-repeat',
