@@ -30,7 +30,7 @@ export default function AboutSection() {
           >
             <div className="relative h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
               <Image
-                src="/dr-moskovitz.png"
+                src="/dr-moskovitz.jpg"
                 alt="Dr. Martin Moskovitz, MD, FACS — Board Certified Plastic Surgeon"
                 fill
                 className="object-cover object-top"
