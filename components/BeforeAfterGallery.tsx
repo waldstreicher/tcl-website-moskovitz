@@ -22,7 +22,7 @@ const beforeAfterImages = [
   { src: '/arms-before-after.jpg',    area: 'Arms' },
   { src: '/back-before-after.jpg',    area: 'Back' },
   { src: '/thighs-before-after.jpg',  area: 'Thighs' },
-  { src: '/chin-before-after.jpg',    area: 'Chin', yPos: '5%', bgSize: '160% auto' },
+  { src: '/chin-before-after.jpg',    area: 'Chin', yPos: '35%', bgSize: '130% auto' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
