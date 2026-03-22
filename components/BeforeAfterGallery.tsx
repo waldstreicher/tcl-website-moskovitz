@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -14,17 +13,24 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
+// All images are side-by-side combined photos: left half = Before, right half = After
 const beforeAfterImages = [
-  { before: '/abdomen-before-after.jpg', after: '/abdomen-before-after.jpg', area: 'Abdomen', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/hips-before-after.jpg', after: '/hips-before-after.jpg', area: 'Waist & Hips', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/arms-before-after.jpg', after: '/arms-before-after.jpg', area: 'Arms', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/back-before-after.jpg', after: '/back-before-after.jpg', area: 'Back', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/thighs-before-after.jpg', after: '/thighs-before-after.jpg', area: 'Thighs', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/chin-before-after.jpg', after: '/chin-before-after.jpg', area: 'Chin', beforePos: 'left center', afterPos: 'right center' },
+  { src: '/abdomen-before-after.jpg', area: 'Abdomen' },
+  { src: '/hips-before-after.jpg',    area: 'Waist & Hips' },
+  { src: '/arms-before-after.jpg',    area: 'Arms' },
+  { src: '/back-before-after.jpg',    area: 'Back' },
+  { src: '/thighs-before-after.jpg',  area: 'Thighs' },
+  { src: '/chin-before-after.jpg',    area: 'Chin' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
-  const [revealed, setRevealed] = useState(50);
+  // Start at 95 so the Before image is fully visible; drag left to reveal After
+  const [revealed, setRevealed] = useState(95);
+
+  const handleMove = (clientX: number, rect: DOMRect) => {
+    const pct = ((clientX - rect.left) / rect.width) * 100;
+    setRevealed(Math.max(5, Math.min(95, pct)));
+  };
 
   return (
     <motion.div
@@ -32,32 +38,54 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
       className="rounded-lg overflow-hidden shadow-sm border border-tcl-border"
     >
       <div
-        className="relative h-64 cursor-col-resize select-none"
-        onMouseMove={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const pct = ((e.clientX - rect.left) / rect.width) * 100;
-          setRevealed(Math.max(5, Math.min(95, pct)));
-        }}
-        onTouchMove={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const pct = ((e.touches[0].clientX - rect.left) / rect.width) * 100;
-          setRevealed(Math.max(5, Math.min(95, pct)));
-        }}
+        className="relative h-64 cursor-col-resize select-none overflow-hidden"
+        onMouseMove={(e) => handleMove(e.clientX, e.currentTarget.getBoundingClientRect())}
+        onTouchMove={(e) => handleMove(e.touches[0].clientX, e.currentTarget.getBoundingClientRect())}
         data-slot={`before-after-${index + 1}`}
       >
-        {/* After image (full) */}
-        <div className="absolute inset-0">
-          <Image src={item.after} alt={`After TCL treatment — ${item.area}`} fill className="object-cover" style={{ objectPosition: item.afterPos ?? 'center' }} />
-          <div className="absolute top-2 right-2 bg-tcl-gold text-white text-xs px-2 py-1 rounded">After</div>
-        </div>
-        {/* Before image (clipped) */}
-        <div className="absolute inset-0 overflow-hidden" style={{ width: `${revealed}%` }}>
-          <Image src={item.before} alt={`Before TCL treatment — ${item.area}`} fill className="object-cover" style={{ objectPosition: item.beforePos ?? 'center' }} />
-          <div className="absolute top-2 left-2 bg-tcl-dark/70 text-white text-xs px-2 py-1 rounded">Before</div>
-        </div>
-        {/* Divider */}
+        {/*
+          After image — right half of combined photo.
+          backgroundSize: '200% auto' makes the image twice as wide as the container,
+          backgroundPosition: '100% 50%' anchors it so we see the RIGHT half.
+        */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg z-10"
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${item.src})`,
+            backgroundSize: '200% auto',
+            backgroundPosition: '100% 50%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        <div className="absolute top-2 right-2 bg-tcl-gold text-white text-xs px-2 py-1 rounded z-10 pointer-events-none">
+          After
+        </div>
+
+        {/*
+          Before image — left half of combined photo.
+          Same backgroundSize trick but backgroundPosition: '0% 50%' shows the LEFT half.
+          clip-path instead of width-clipping so the background crop stays fixed
+          regardless of how much of the panel is visible.
+        */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${item.src})`,
+            backgroundSize: '200% auto',
+            backgroundPosition: '0% 50%',
+            backgroundRepeat: 'no-repeat',
+            clipPath: `inset(0 ${100 - revealed}% 0 0)`,
+          }}
+        />
+        {revealed > 10 && (
+          <div className="absolute top-2 left-2 bg-tcl-dark/70 text-white text-xs px-2 py-1 rounded z-10 pointer-events-none">
+            Before
+          </div>
+        )}
+
+        {/* Drag divider handle */}
+        <div
+          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg z-20 pointer-events-none"
           style={{ left: `${revealed}%` }}
         >
           <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center">
@@ -68,9 +96,10 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
           </div>
         </div>
       </div>
+
       <div className="bg-white px-4 py-3">
         <p className="text-sm font-medium text-tcl-dark font-sans">{item.area}</p>
-        <p className="text-xs text-tcl-gray">Drag to reveal</p>
+        <p className="text-xs text-tcl-gray">Drag to reveal After</p>
       </div>
     </motion.div>
   );
