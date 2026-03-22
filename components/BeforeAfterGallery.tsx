@@ -14,18 +14,23 @@ const stagger = {
 };
 
 // All images are side-by-side combined photos: left half = Before, right half = After
+// yPos: vertical anchor for backgroundPosition (default '50%' = centered)
+// bgSize: background-size override (default '200% auto' = exact 50/50 split)
 const beforeAfterImages = [
   { src: '/abdomen-before-after.jpg', area: 'Abdomen' },
   { src: '/hips-before-after.jpg',    area: 'Waist & Hips' },
   { src: '/arms-before-after.jpg',    area: 'Arms' },
   { src: '/back-before-after.jpg',    area: 'Back' },
   { src: '/thighs-before-after.jpg',  area: 'Thighs' },
-  { src: '/chin-before-after.jpg',    area: 'Chin' },
+  { src: '/chin-before-after.jpg',    area: 'Chin', yPos: '5%', bgSize: '160% auto' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
   // Start at 95 so the Before image is fully visible; drag left to reveal After
   const [revealed, setRevealed] = useState(95);
+
+  const yPos   = item.yPos  ?? '50%';
+  const bgSize = item.bgSize ?? '200% auto';
 
   const handleMove = (clientX: number, rect: DOMRect) => {
     const pct = ((clientX - rect.left) / rect.width) * 100;
@@ -45,15 +50,15 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
       >
         {/*
           After image — right half of combined photo.
-          backgroundSize: '200% auto' makes the image twice as wide as the container,
-          backgroundPosition: '100% 50%' anchors it so we see the RIGHT half.
+          backgroundSize: bgSize makes the image twice as wide as the container,
+          backgroundPosition: '100% yPos' anchors it so we see the RIGHT half.
         */}
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${item.src})`,
-            backgroundSize: '200% auto',
-            backgroundPosition: '100% 50%',
+            backgroundSize: bgSize,
+            backgroundPosition: `100% ${yPos}`,
             backgroundRepeat: 'no-repeat',
           }}
         />
@@ -71,8 +76,8 @@ function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; i
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${item.src})`,
-            backgroundSize: '200% auto',
-            backgroundPosition: '0% 50%',
+            backgroundSize: bgSize,
+            backgroundPosition: `0% ${yPos}`,
             backgroundRepeat: 'no-repeat',
             clipPath: `inset(0 ${100 - revealed}% 0 0)`,
           }}
