@@ -8,22 +8,19 @@ const words = ['A', 'New', 'Era', 'in', 'Body', 'Contouring.'];
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-tcl-dark">
-      {/* Background image (right side fill on desktop) */}
-      <div className="absolute inset-0 lg:left-[45%]">
+      {/* Background image — full bleed */}
+      <div className="absolute inset-0">
         <Image
           src="/hero-woman.jpg"
-          alt="Confident, naturally contoured woman after TCL body contouring"
+          alt="Confident women in activewear — TCL body contouring patients"
           fill
           priority
-          className="object-cover object-[center_20%]"
+          className="object-cover object-center"
           data-slot="hero-background"
         />
-        {/* Gradient: strong dark on left (text area), fades to transparent on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-tcl-dark/95 via-tcl-dark/40 to-transparent" />
+        {/* Dark overlay: heavier on left for text legibility, lighter on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-tcl-dark/90 via-tcl-dark/60 to-tcl-dark/30" />
       </div>
-
-      {/* Full-page dark overlay for mobile */}
-      <div className="absolute inset-0 bg-tcl-dark/60 lg:hidden" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-0 w-full">

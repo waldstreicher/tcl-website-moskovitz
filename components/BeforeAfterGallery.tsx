@@ -15,12 +15,12 @@ const stagger = {
 };
 
 const beforeAfterImages = [
-  { before: '/abdomen-before-after.jpg', after: '/abdomen-before-after.jpg', area: 'Abdomen', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/hips-before-after.jpg', after: '/hips-before-after.jpg', area: 'Waist & Hips', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/arms-before-after.jpg', after: '/arms-before-after.jpg', area: 'Arms', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/back-before-after.jpg', after: '/back-before-after.jpg', area: 'Back', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/thighs-before-after.jpg', after: '/thighs-before-after.jpg', area: 'Thighs', beforePos: 'left center', afterPos: 'right center' },
-  { before: '/chin-before-after.jpg', after: '/chin-before-after.jpg', area: 'Chin', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/abdomen-before-after.png', after: '/abdomen-before-after.png', area: 'Abdomen', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/hips-before-after.png', after: '/hips-before-after.png', area: 'Waist & Hips', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/arms-before-after.png', after: '/arms-before-after.png', area: 'Arms', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/back-before-after.png', after: '/back-before-after.png', area: 'Back', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/thighs-before-after.png', after: '/thighs-before-after.png', area: 'Thighs', beforePos: 'left center', afterPos: 'right center' },
+  { before: '/chin-before-after.png', after: '/chin-before-after.png', area: 'Chin', beforePos: 'left center', afterPos: 'right center' },
 ];
 
 function BeforeAfterCard({ item, index }: { item: typeof beforeAfterImages[0]; index: number }) {
