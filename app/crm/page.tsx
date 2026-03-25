@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import {
   Search, Plus, Download, X, ChevronUp, ChevronDown,
-  Edit2, Trash2, Phone, Mail, Globe, MapPin, DollarSign,
+  Edit2, Trash2, Phone, Globe, DollarSign,
   Users, TrendingUp, CheckCircle, Flame, AlertCircle, Save
 } from 'lucide-react'
 
@@ -353,6 +353,23 @@ function InvestorModal({ investor, onSave, onClose, title }: ModalProps) {
   )
 }
 
+// ─── Table Header Components ─────────────────────────────────────────────────
+
+function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: 'asc' | 'desc' }) {
+  if (sortKey !== col) return <ChevronUp size={12} className="text-gray-300" />
+  return sortDir === 'asc' ? <ChevronUp size={12} className="text-blue-600" /> : <ChevronDown size={12} className="text-blue-600" />
+}
+
+function TH({ col, label, sortKey, sortDir, onSort }: {
+  col: SortKey; label: string; sortKey: SortKey; sortDir: 'asc' | 'desc'; onSort: (k: SortKey) => void
+}) {
+  return (
+    <th onClick={() => onSort(col)} className="px-3 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer hover:text-gray-700 select-none whitespace-nowrap">
+      <span className="flex items-center gap-1">{label}<SortIcon col={col} sortKey={sortKey} sortDir={sortDir} /></span>
+    </th>
+  )
+}
+
 // ─── Main CRM Component ───────────────────────────────────────────────────────
 
 export default function CRMPage() {
@@ -442,19 +459,6 @@ export default function CRMPage() {
 
   const editingInvestor = editingId ? investors.find(i => i.id === editingId) : undefined
 
-  function SortIcon({ col }: { col: SortKey }) {
-    if (sortKey !== col) return <ChevronUp size={12} className="text-gray-300" />
-    return sortDir === 'asc' ? <ChevronUp size={12} className="text-blue-600" /> : <ChevronDown size={12} className="text-blue-600" />
-  }
-
-  function TH({ col, label }: { col: SortKey; label: string }) {
-    return (
-      <th onClick={() => toggleSort(col)} className="px-3 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer hover:text-gray-700 select-none whitespace-nowrap">
-        <span className="flex items-center gap-1">{label}<SortIcon col={col} /></span>
-      </th>
-    )
-  }
-
   if (!loaded) return <div className="flex items-center justify-center h-screen text-gray-500">Loading…</div>
 
   const TABS: { key: Status | 'all'; label: string; count: number }[] = [
@@ -541,13 +545,13 @@ export default function CRMPage() {
             <table className="w-full text-sm">
               <thead className="border-b border-gray-100 bg-gray-50/50">
                 <tr>
-                  <TH col="lastName" label="Name" />
+                  <TH col="lastName" label="Name" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
                   <th className="px-3 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Status</th>
-                  <TH col="discipline" label="Discipline" />
-                  <TH col="location" label="Location" />
-                  <TH col="email" label="Email" />
-                  <TH col="nextSteps" label="Next Steps" />
-                  <TH col="committedCapital" label="Capital" />
+                  <TH col="discipline" label="Discipline" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
+                  <TH col="location" label="Location" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
+                  <TH col="email" label="Email" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
+                  <TH col="nextSteps" label="Next Steps" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
+                  <TH col="committedCapital" label="Capital" sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
                   <th className="px-3 py-3" />
                 </tr>
               </thead>
@@ -556,9 +560,9 @@ export default function CRMPage() {
                   <tr><td colSpan={8} className="text-center py-12 text-gray-400 text-sm">No contacts found.</td></tr>
                 )}
                 {filtered.map(inv => (
-                  <>
+                  <React.Fragment key={inv.id}>
                     <tr
-                      key={inv.id}
+
                       className={`hover:bg-blue-50/40 cursor-pointer transition-colors ${expandedId === inv.id ? 'bg-blue-50/60' : ''}`}
                       onClick={() => setExpandedId(expandedId === inv.id ? null : inv.id)}
                     >
@@ -623,7 +627,7 @@ export default function CRMPage() {
                         </td>
                       </tr>
                     )}
-                  </>
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>
