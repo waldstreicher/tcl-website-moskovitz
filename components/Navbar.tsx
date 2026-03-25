@@ -39,10 +39,10 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="flex flex-col leading-none">
             <span className={`font-serif text-3xl font-semibold tracking-wider ${scrolled ? 'text-tcl-dark' : 'text-white'}`}>
-              TCL
+              Tecela
             </span>
             <span className={`text-[10px] tracking-[0.2em] uppercase font-sans ${scrolled ? 'text-tcl-gray' : 'text-white/80'}`}>
-              Tumescent Cryolipolysis
+              Tumescent Lipolysis
             </span>
           </a>
 
