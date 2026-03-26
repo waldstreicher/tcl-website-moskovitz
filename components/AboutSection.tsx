@@ -78,7 +78,7 @@ export default function AboutSection() {
                 book chapters in the field.
               </p>
               <p>
-                The Tecela procedure was invented by Dr. Moskovitz as a safer, faster, and more
+                The Tullia procedure was invented by Dr. Moskovitz as a safer, faster, and more
                 effective alternative to both traditional liposuction and non-invasive body contouring. His practice,
                 Moskovitz Plastic Surgery PLLC, is a fully accredited surgery center approved by Quad A.
               </p>

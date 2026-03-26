@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <span className="font-serif text-3xl font-semibold tracking-wider text-white">Tecela</span>
+              <span className="font-serif text-3xl font-semibold tracking-wider text-white">Tullia</span>
               <p className="text-xs tracking-[0.2em] uppercase text-white/50 mt-0.5">Tumescent Lipolysis</p>
             </div>
             <p className="text-white/60 text-sm leading-relaxed italic font-serif">
@@ -61,10 +61,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8 space-y-4">
           <p className="text-sm text-white/50 text-center">
-            &copy; 2025 Tecela. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
+            &copy; 2025 Tullia. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
           </p>
           <p className="text-xs text-white/30 text-center max-w-3xl mx-auto leading-relaxed">
-            The Tecela procedure is a minimally invasive surgical treatment. Results may vary. This website is for
+            The Tullia procedure is a minimally invasive surgical treatment. Results may vary. This website is for
             informational purposes only and does not constitute medical advice. Please consult a qualified physician
             before undergoing any surgical procedure.
           </p>

@@ -12,7 +12,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/hero-woman.jpg"
-          alt="Confident women in activewear — Tecela body contouring patients"
+          alt="Confident women in activewear — Tullia body contouring patients"
           fill
           priority
           className="object-cover object-center"
@@ -60,7 +60,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.9 }}
             className="text-white/80 text-lg lg:text-xl font-sans font-light leading-relaxed mb-10 max-w-lg"
           >
-            The Tecela procedure delivers dramatic, lasting results — in just{' '}
+            The Tullia procedure delivers dramatic, lasting results — in just{' '}
             <span className="text-tcl-gold font-medium">15 minutes</span>, with no anesthesia and no downtime.
           </motion.p>
 
@@ -77,7 +77,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.97 }}
               className="px-8 py-4 bg-tcl-gold text-white text-sm font-medium tracking-widest uppercase rounded-sm hover:bg-tcl-gold-dark transition-colors text-center"
             >
-              Discover Tecela
+              Discover Tullia
             </motion.a>
             <motion.a
               href="#consult"

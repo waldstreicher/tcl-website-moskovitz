@@ -22,7 +22,7 @@ const cards = [
   {
     icon: ShieldCheck,
     title: 'No Anesthesia Required',
-    body: 'Tecela uses a tumescent solution that numbs the treatment area, eliminating the need for general anesthesia entirely.',
+    body: 'Tullia uses a tumescent solution that numbs the treatment area, eliminating the need for general anesthesia entirely.',
   },
   {
     icon: Activity,
@@ -37,12 +37,12 @@ const cards = [
   {
     icon: HeartPulse,
     title: 'No Special Post-Op Care',
-    body: 'Forget compression garments and drainage tubes. Tecela requires none of the typical post-operative care of traditional liposuction.',
+    body: 'Forget compression garments and drainage tubes. Tullia requires none of the typical post-operative care of traditional liposuction.',
   },
   {
     icon: Zap,
     title: 'Lasting Results',
-    body: 'Tecela permanently removes fat cells, delivering sculpted, natural-looking contours that last.',
+    body: 'Tullia permanently removes fat cells, delivering sculpted, natural-looking contours that last.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function ProcedureSection() {
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">
-            The Tecela Procedure
+            The Tullia Procedure
           </h2>
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto leading-relaxed">
             A minimally invasive body sculpting procedure that delivers results no other treatment can match.

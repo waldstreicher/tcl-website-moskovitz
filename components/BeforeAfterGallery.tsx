@@ -123,7 +123,7 @@ export default function BeforeAfterGallery() {
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">Real Results</h2>
           <p className="text-tcl-gray text-lg max-w-xl mx-auto">
-            See the transformation Tecela can achieve.
+            See the transformation Tullia can achieve.
           </p>
         </motion.div>
 

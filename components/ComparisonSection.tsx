@@ -36,10 +36,10 @@ export default function ComparisonSection() {
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">
-            How Does Tecela Compare?
+            How Does Tullia Compare?
           </h2>
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto leading-relaxed">
-            See how Tecela stacks up against traditional liposuction and non-invasive body contouring alternatives.
+            See how Tullia stacks up against traditional liposuction and non-invasive body contouring alternatives.
           </p>
         </motion.div>
 
@@ -58,7 +58,7 @@ export default function ComparisonSection() {
                   Feature
                 </th>
                 <th className="py-5 px-6 text-center border-b border-tcl-border bg-tcl-gold">
-                  <span className="text-white text-sm font-semibold tracking-wide">Tecela ✓</span>
+                  <span className="text-white text-sm font-semibold tracking-wide">Tullia ✓</span>
                 </th>
                 <th className="py-5 px-6 text-center text-sm font-medium text-tcl-gray border-b border-tcl-border">
                   Traditional Liposuction
@@ -93,7 +93,7 @@ export default function ComparisonSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
           {[
             {
-              title: 'Tecela vs. Liposuction',
+              title: 'Tullia vs. Liposuction',
               points: [
                 'Faster procedure — 15 minutes vs. 1–3 hours',
                 'Significantly less pain and discomfort',
@@ -101,7 +101,7 @@ export default function ComparisonSection() {
               ],
             },
             {
-              title: 'Tecela vs. CoolSculpting & Similar',
+              title: 'Tullia vs. CoolSculpting & Similar',
               points: [
                 'No need for multiple treatment sessions',
                 'Faster than any non-invasive alternative',
