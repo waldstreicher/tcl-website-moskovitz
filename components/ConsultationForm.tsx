@@ -37,6 +37,7 @@ export default function ConsultationForm() {
   const onSubmit = async (data: FormData) => {
     setSubmitState('loading');
     try {
+      // Send email notification via EmailJS
       await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
@@ -51,6 +52,25 @@ export default function ConsultationForm() {
         },
         EMAILJS_CONFIG.publicKey
       );
+
+      // Also send to CRM (fire-and-forget — don't block on failure)
+      const crmUrl = process.env.NEXT_PUBLIC_CRM_INTAKE_URL;
+      if (crmUrl) {
+        fetch(crmUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            first_name: data.firstName,
+            last_name: data.lastName,
+            email: data.email,
+            phone: data.phone || null,
+            preferred_contact: data.preferredContact.toLowerCase(),
+            areas_of_interest: data.areas,
+            message: data.message || null,
+          }),
+        }).catch(() => {}); // Silently ignore CRM errors
+      }
+
       setSubmitState('success');
       reset();
     } catch {
