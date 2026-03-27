@@ -53,22 +53,32 @@ export default function ConsultationForm() {
         EMAILJS_CONFIG.publicKey
       );
 
-      // Also send to CRM (fire-and-forget — don't block on failure)
+      // Send to CRM
       const crmUrl = process.env.NEXT_PUBLIC_CRM_INTAKE_URL;
       if (crmUrl) {
-        fetch(crmUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            first_name: data.firstName,
-            last_name: data.lastName,
-            email: data.email,
-            phone: data.phone || null,
-            preferred_contact: data.preferredContact.toLowerCase(),
-            areas_of_interest: data.areas,
-            message: data.message || null,
-          }),
-        }).catch(() => {}); // Silently ignore CRM errors
+        try {
+          const crmRes = await fetch(crmUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              first_name: data.firstName,
+              last_name: data.lastName,
+              email: data.email,
+              phone: data.phone || null,
+              preferred_contact: data.preferredContact.toLowerCase(),
+              areas_of_interest: data.areas,
+              message: data.message || null,
+            }),
+          });
+          if (!crmRes.ok) {
+            const errText = await crmRes.text();
+            console.error('CRM intake failed:', crmRes.status, errText);
+          }
+        } catch (crmErr) {
+          console.error('CRM intake error:', crmErr);
+        }
+      } else {
+        console.warn('NEXT_PUBLIC_CRM_INTAKE_URL is not set');
       }
 
       setSubmitState('success');
