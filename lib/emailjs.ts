@@ -1,8 +1,6 @@
 export const EMAILJS_CONFIG = {
-  // Replace these with your actual EmailJS credentials
-  // Sign up at https://www.emailjs.com/
-  serviceId: 'YOUR_SERVICE_ID',      // e.g., 'service_abc123'
-  templateId: 'YOUR_TEMPLATE_ID',    // e.g., 'template_xyz789'
-  publicKey: 'YOUR_PUBLIC_KEY',      // e.g., 'user_AbCdEfGhIjK'
+  serviceId:  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? '',
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
+  publicKey:  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? '',
   toEmail: 'info@tulliaprocedure.com',
 };
