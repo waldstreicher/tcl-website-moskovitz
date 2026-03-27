@@ -85,8 +85,8 @@ export default function LocationSection() {
                 <Mail className="text-tcl-gold shrink-0" size={18} />
                 <div>
                   <p className="text-sm font-medium text-tcl-dark">Email</p>
-                  <a href="mailto:info@tumescentcryolipolysis.com" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">
-                    info@tumescentcryolipolysis.com
+                  <a href="mailto:info@tulliaprocedure.com" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">
+                    info@tulliaprocedure.com
                   </a>
                 </div>
               </div>

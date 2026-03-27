@@ -42,9 +42,9 @@ export default function Footer() {
           <div>
             <h4 className="text-xs tracking-widest uppercase text-white/50 mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href="mailto:info@tumescentcryolipolysis.com" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
+              <a href="mailto:info@tulliaprocedure.com" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
                 <Mail size={14} className="text-tcl-gold" />
-                info@tumescentcryolipolysis.com
+                info@tulliaprocedure.com
               </a>
               <a href="tel:+12012251101" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
                 <Phone size={14} className="text-tcl-gold" />
