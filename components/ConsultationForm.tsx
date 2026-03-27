@@ -198,8 +198,8 @@ export default function ConsultationForm() {
                     <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={18} />
                     <p className="text-sm text-red-700">
                       Something went wrong. Please email us directly at{' '}
-                      <a href="mailto:info@tulliaprocedure.com" className="underline">
-                        info@tulliaprocedure.com
+                      <a href="mailto:jwaldstreicher@karimedical.com" className="underline">
+                        jwaldstreicher@karimedical.com
                       </a>
                     </p>
                   </div>
