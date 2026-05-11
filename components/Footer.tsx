@@ -3,7 +3,6 @@ import { Mail, Phone } from 'lucide-react';
 const footerLinks = [
   { label: 'The Procedure', href: '#procedure' },
   { label: 'About', href: '#about' },
-  { label: 'Results', href: '#results' },
   { label: 'Locations', href: '#location' },
   { label: 'Privacy Policy', href: '#' },
 ];
