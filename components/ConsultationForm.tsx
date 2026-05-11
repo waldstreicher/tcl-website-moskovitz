@@ -203,6 +203,10 @@ export default function ConsultationForm() {
                   />
                 </div>
 
+                <p className="text-xs text-tcl-gray leading-relaxed">
+                  By submitting this form, you understand that you are requesting general information and provider connection services, not medical advice or treatment. No patient-provider relationship is created by submission of this form.
+                </p>
+
                 {submitState === 'error' && (
                   <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={18} />

@@ -15,18 +15,16 @@ export default function VirtualConsultBanner() {
           className="flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <div>
-            <p className="text-white/80 text-sm tracking-widest uppercase mb-2 font-sans">Telehealth</p>
+            <p className="text-white/80 text-sm tracking-widest uppercase mb-2 font-sans">Consultation</p>
             <h2 className="font-serif text-3xl lg:text-4xl text-white font-semibold mb-3">
               Start Your Journey From Home
             </h2>
             <p className="text-white/90 text-base max-w-xl">
-              Connect with Dr. Moskovitz virtually through our secure telehealth platform — powered by SteadyMD.
+              Connect with Dr. Moskovitz virtually to discuss your goals and learn whether the procedure is right for you.
             </p>
           </div>
           <motion.a
-            href="https://www.steadymd.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#consult"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center gap-2 px-8 py-4 bg-white text-tcl-gold font-medium text-sm tracking-wide rounded-sm hover:bg-tcl-bg transition-colors whitespace-nowrap"

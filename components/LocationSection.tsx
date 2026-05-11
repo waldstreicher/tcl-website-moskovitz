@@ -1,21 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
-
-const hours = [
-  { day: 'Monday', hours: '10:00 AM – 4:00 PM' },
-  { day: 'Tuesday', hours: '10:00 AM – 6:00 PM' },
-  { day: 'Wednesday', hours: '10:00 AM – 4:00 PM' },
-  { day: 'Thursday', hours: '8:00 AM – 4:00 PM' },
-  { day: 'Friday', hours: '8:00 AM – 1:00 PM' },
-  { day: 'Saturday – Sunday', hours: 'Closed' },
-];
 
 export default function LocationSection() {
   return (
@@ -89,21 +80,6 @@ export default function LocationSection() {
                     info@tulliaprocedure.com
                   </a>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 border border-tcl-border">
-              <div className="flex items-center gap-2 mb-4">
-                <Clock className="text-tcl-gold" size={18} />
-                <p className="text-sm font-medium text-tcl-dark">Office Hours</p>
-              </div>
-              <div className="space-y-2">
-                {hours.map(({ day, hours: h }) => (
-                  <div key={day} className="flex justify-between text-sm">
-                    <span className="text-tcl-dark">{day}</span>
-                    <span className={h === 'Closed' ? 'text-tcl-gray/60' : 'text-tcl-gray'}>{h}</span>
-                  </div>
-                ))}
               </div>
             </div>
 
