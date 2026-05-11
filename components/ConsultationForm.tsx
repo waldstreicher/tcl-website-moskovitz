@@ -251,7 +251,7 @@ export default function ConsultationForm() {
               <div className="absolute inset-0 bg-gradient-to-t from-tcl-dark/40 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6">
-                  <p className="font-serif text-lg text-tcl-dark mb-1">&ldquo;The results were immediate.&rdquo;</p>
+                  <p className="font-serif text-lg text-tcl-dark mb-1">&ldquo;I started to see significant results in 2-4 weeks; by 12 weeks, the treatment effect was complete and I was thrilled with outcome.&rdquo;</p>
                   <p className="text-sm text-tcl-gray">15-minute procedure. No downtime. Lasting results.</p>
                 </div>
               </div>
