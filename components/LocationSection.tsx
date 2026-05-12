@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -70,15 +70,6 @@ export default function LocationSection() {
                 <div>
                   <p className="text-sm font-medium text-tcl-dark">Phone</p>
                   <a href="tel:+12012251101" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">(201) 225-1101</a>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="text-tcl-gold shrink-0" size={18} />
-                <div>
-                  <p className="text-sm font-medium text-tcl-dark">Email</p>
-                  <a href="mailto:info@tulliaprocedure.com" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">
-                    info@tulliaprocedure.com
-                  </a>
                 </div>
               </div>
             </div>

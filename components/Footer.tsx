@@ -1,4 +1,4 @@
-import { Mail, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 const footerLinks = [
   { label: 'The Procedure', href: '#procedure' },
@@ -41,10 +41,6 @@ export default function Footer() {
           <div>
             <h4 className="text-xs tracking-widest uppercase text-white/50 mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href="mailto:info@tulliaprocedure.com" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
-                <Mail size={14} className="text-tcl-gold" />
-                info@tulliaprocedure.com
-              </a>
               <a href="tel:+12012251101" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
                 <Phone size={14} className="text-tcl-gold" />
                 (201) 225-1101
