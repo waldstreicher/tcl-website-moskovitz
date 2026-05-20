@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'The Procedure', href: '#procedure' },
-  { label: 'About', href: '#about' },
-  { label: 'Locations', href: '#location' },
-  { label: 'Contact', href: '#consult' },
+  { label: 'The Procedure', href: '/#procedure' },
+  { label: 'About', href: '/#about' },
+  { label: 'Locations', href: '/#location' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/#consult' },
 ];
 
 export default function Navbar() {
@@ -36,7 +37,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex flex-col leading-none">
+          <a href="/" className="flex flex-col leading-none">
             <span className={`font-serif text-3xl font-semibold tracking-wider ${scrolled ? 'text-tcl-dark' : 'text-white'}`}>
               Tullia
             </span>
@@ -59,7 +60,7 @@ export default function Navbar() {
               </a>
             ))}
             <motion.a
-              href="#consult"
+              href="/#consult"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="ml-4 px-6 py-2.5 bg-tcl-gold text-white text-sm font-medium tracking-wide rounded-sm hover:bg-tcl-gold-dark transition-colors"
@@ -100,7 +101,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#consult"
+              href="/#consult"
               onClick={() => setMenuOpen(false)}
               className="mt-4 px-8 py-3 bg-tcl-gold text-white text-sm font-medium tracking-wide rounded-sm"
             >

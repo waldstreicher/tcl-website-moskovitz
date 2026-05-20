@@ -21,9 +21,29 @@ const config: Config = {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
       },
+      typography: ({ theme }: { theme: (k: string) => string }) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.tcl-dark'),
+            '--tw-prose-headings': theme('colors.tcl-dark'),
+            '--tw-prose-links': theme('colors.tcl-gold'),
+            '--tw-prose-bold': theme('colors.tcl-dark'),
+            '--tw-prose-quotes': theme('colors.tcl-gray'),
+            '--tw-prose-quote-borders': theme('colors.tcl-gold'),
+            '--tw-prose-bullets': theme('colors.tcl-gold'),
+            '--tw-prose-counters': theme('colors.tcl-gold'),
+            '--tw-prose-hr': theme('colors.tcl-border'),
+            h1: { fontFamily: theme('fontFamily.serif').toString() },
+            h2: { fontFamily: theme('fontFamily.serif').toString() },
+            h3: { fontFamily: theme('fontFamily.serif').toString() },
+            h4: { fontFamily: theme('fontFamily.serif').toString() },
+            a: { textDecorationColor: theme('colors.tcl-gold') },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;
