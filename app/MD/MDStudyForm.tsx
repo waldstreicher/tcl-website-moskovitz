@@ -9,7 +9,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 type FormData = {
-  medicalSpecialty: string;
+  medicalDegree: string;
   mondayTimes: string[];
   tuesdayTimes: string[];
   name: string;
@@ -53,7 +53,7 @@ export default function MDStudyForm() {
         `Name: ${data.name}`,
         `Email: ${data.email}`,
         `Phone: ${data.phone}`,
-        `Medical specialty: ${data.medicalSpecialty}`,
+        `Medical degree: ${data.medicalDegree}`,
         '',
         `Monday, June 15 availability: ${monday}`,
         `Tuesday, June 16 availability: ${tuesday}`,
@@ -67,7 +67,7 @@ export default function MDStudyForm() {
           from_email: data.email,
           phone: data.phone,
           preferred_contact: 'Email',
-          areas: `Medical specialty: ${data.medicalSpecialty}`,
+          areas: `Medical degree: ${data.medicalDegree}`,
           message: messageBody,
           to_email: RECIPIENT_EMAIL,
         },
@@ -131,26 +131,26 @@ export default function MDStudyForm() {
               className="space-y-8 bg-white border border-tcl-border rounded-lg p-8 lg:p-10"
               noValidate
             >
-              {/* Medical specialty */}
+              {/* Medical degree */}
               <div>
                 <label
-                  htmlFor="medicalSpecialty"
+                  htmlFor="medicalDegree"
                   className="block text-sm font-medium text-tcl-dark mb-1.5"
                 >
-                  What is your medical specialty?{' '}
+                  What medical degree do you have?{' '}
                   <span className="text-tcl-gold">*</span>
                 </label>
                 <input
-                  id="medicalSpecialty"
-                  {...register('medicalSpecialty', {
-                    required: 'Please tell us your medical specialty',
+                  id="medicalDegree"
+                  {...register('medicalDegree', {
+                    required: 'Please tell us your medical degree',
                   })}
                   className="w-full px-4 py-3 border border-tcl-border rounded-sm text-sm focus:outline-none focus:border-tcl-gold transition-colors bg-white"
-                  placeholder="e.g., Plastic Surgery, Dermatology, Internal Medicine"
+                  placeholder="e.g., MD, DO, DDS"
                 />
-                {errors.medicalSpecialty && (
+                {errors.medicalDegree && (
                   <p className="text-red-500 text-xs mt-1">
-                    {errors.medicalSpecialty.message}
+                    {errors.medicalDegree.message}
                   </p>
                 )}
               </div>
