@@ -61,7 +61,7 @@ export default function HeroSection() {
             className="text-white/80 text-lg lg:text-xl font-sans font-light leading-relaxed mb-10 max-w-lg"
           >
             The Tullia procedure delivers dramatic, lasting results — in just{' '}
-            <span className="text-tcl-gold font-medium">15 minutes</span>, with no anesthesia and no downtime.
+            <span className="text-tcl-gold font-medium">15 minutes</span>, with no general anesthesia and no Down Time.
           </motion.p>
 
           {/* CTA Buttons */}

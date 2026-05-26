@@ -12,7 +12,7 @@ const credentials = [
   'Board Certified — Plastic Surgery',
   'Board Certified — General Surgery',
   'Fellow, American College of Surgeons',
-  '35+ Years Experience',
+  '30+ Years Experience',
 ];
 
 export default function AboutSection() {
@@ -51,10 +51,10 @@ export default function AboutSection() {
           >
             <div className="inline-flex items-center gap-3 mb-4">
               <div className="h-px w-12 bg-tcl-gold" />
-              <span className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-sans">The Inventor</span>
+              <span className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-sans">The Developer</span>
             </div>
             <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-2">
-              Meet the Inventor
+              Meet the Developer
             </h2>
             <h3 className="font-serif text-2xl text-tcl-gold font-medium mb-6">
               Dr. Martin Moskovitz, MD, FACS
@@ -62,9 +62,9 @@ export default function AboutSection() {
 
             <div className="space-y-4 text-tcl-gray leading-relaxed text-sm">
               <p>
-                Dr. Martin Moskovitz is a Board Certified Plastic Surgeon and Fellow of the American College of Surgeons,
-                with over 35 years of experience. He is board certified in both plastic surgery and general surgery — a
-                distinction that means he understands the full physiological impact of surgery on every patient.
+                Dr. Martin Moskovitz has over 30 years of experience in Plastic Surgery. Having completed residency and
+                training in General Surgery and Plastic Surgery, he understands the full physiological impact of
+                surgery on every patient.
               </p>
               <p>
                 Dr. Moskovitz completed his medical training at Rutgers Robert Wood Johnson Medical School and went on
@@ -78,7 +78,7 @@ export default function AboutSection() {
                 book chapters in the field.
               </p>
               <p>
-                The Tullia procedure was invented by Dr. Moskovitz as a safer, faster, and more
+                The Tullia procedure was developed by Dr. Moskovitz as a safer, faster, and more
                 effective alternative to both traditional liposuction and non-invasive body contouring. His practice,
                 Moskovitz Plastic Surgery PLLC, is a fully accredited surgery center approved by Quad A.
               </p>
