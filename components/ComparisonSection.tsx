@@ -10,7 +10,7 @@ const fadeUp = {
 
 const rows = [
   { feature: 'Procedure Time', tcl: '15 minutes', lipo: '1–3 hours', non: '35–60 min/session' },
-  { feature: 'Anesthesia', tcl: 'None required', lipo: 'General, IV, oral, or high-dose lidocaine', non: 'None' },
+  { feature: 'Anesthesia', tcl: 'None required', lipo: 'Combination of general, IV, oral narcotics/anxiolytics', non: 'None' },
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
   { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
@@ -97,7 +97,7 @@ export default function ComparisonSection() {
               points: [
                 'Faster procedure — 15 minutes vs. 1–3 hours',
                 'Significantly less pain and discomfort',
-                'No general, IV, oral, or high-dose lidocaine anesthesia required',
+                'No combination of general, IV, or oral narcotics/anxiolytics required',
                 'No Down Time and no anesthesia risks',
               ],
             },

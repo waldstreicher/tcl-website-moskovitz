@@ -6,7 +6,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Tullia | Revolutionary Body Contouring by Dr. Moskovitz',
   description:
-    'Tullia is a breakthrough minimally invasive body contouring procedure. 15-minute treatment, no general anesthesia, immediate return to activity. Developed by Dr. Martin Moskovitz, MD, FACS.',
+    'Tullia is a breakthrough minimally invasive body contouring procedure. 15-minute treatment, no anesthesia, immediate return to activity. Developed by Dr. Martin Moskovitz, MD, FACS.',
   keywords: [
     'Tullia',
     'tumescent lipolysis',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Tullia — A New Era in Body Contouring',
-    description: 'Reshape your body in 15 minutes. No general anesthesia. No Down Time.',
+    description: 'Reshape your body in 15 minutes. No anesthesia. No Down Time.',
     type: 'website',
   },
 };

@@ -22,7 +22,7 @@ const cards = [
   {
     icon: ShieldCheck,
     title: 'No Anesthesia Required',
-    body: 'Tullia uses a tumescent solution that numbs the treatment area, eliminating the need for general anesthesia entirely.',
+    body: 'Tullia is performed without anesthesia of any kind — no general, IV, oral, or local — a key safety advantage over traditional liposuction.',
   },
   {
     icon: Activity,
