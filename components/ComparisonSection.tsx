@@ -12,7 +12,7 @@ const rows = [
   { feature: 'Procedure Time', tcl: '15 minutes', lipo: '1–3 hours', non: '35–60 min/session' },
   { feature: 'Anesthesia', tcl: 'None required (optional nitrous)', lipo: 'Combination of general, IV, oral narcotics/anxiolytics', non: 'None' },
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
-  { feature: 'down time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
+  { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
   { feature: 'Tissue Targeted', tcl: 'Up to 4× more', lipo: 'Standard', non: 'Minimal' },
   { feature: 'Post-Op Care', tcl: 'None', lipo: 'Extensive', non: 'None' },
