@@ -12,7 +12,7 @@ const rows = [
   { feature: 'Procedure Time', tcl: '15 minutes', lipo: '1–3 hours', non: '35–60 min/session' },
   { feature: 'Anesthesia', tcl: 'None required (optional nitrous)', lipo: 'Combination of general, IV, oral narcotics/anxiolytics', non: 'None' },
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
-  { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
+  { feature: 'down time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
   { feature: 'Tissue Targeted', tcl: 'Up to 4× more', lipo: 'Standard', non: 'Minimal' },
   { feature: 'Post-Op Care', tcl: 'None', lipo: 'Extensive', non: 'None' },
@@ -98,7 +98,7 @@ export default function ComparisonSection() {
                 'Faster procedure — 15 minutes vs. 1–3 hours',
                 'Significantly less pain and discomfort',
                 'No combination of general, IV, or oral narcotics/anxiolytics required',
-                'No Down Time and no anesthesia risks',
+                'No down time and no anesthesia risks',
               ],
             },
             {

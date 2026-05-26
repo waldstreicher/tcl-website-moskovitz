@@ -27,7 +27,7 @@ const cards = [
   {
     icon: Activity,
     title: 'Return to Activity Immediately',
-    body: 'Walk out of the office and back into your life. No Down Time, no special post-operative care required.',
+    body: 'Walk out of the office and back into your life. No down time, no special post-operative care required.',
   },
   {
     icon: Sparkles,

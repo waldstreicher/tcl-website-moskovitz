@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Tullia — A New Era in Body Contouring',
-    description: 'Reshape your body in 15 minutes. No anesthesia. No Down Time.',
+    description: 'Reshape your body in 15 minutes. No anesthesia. No down time.',
     type: 'website',
   },
 };
