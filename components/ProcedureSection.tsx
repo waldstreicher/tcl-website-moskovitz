@@ -22,7 +22,7 @@ const cards = [
   {
     icon: ShieldCheck,
     title: 'No Anesthesia Required',
-    body: 'Tullia is performed without anesthesia of any kind — no general, IV, oral, or local — a key safety advantage over traditional liposuction.',
+    body: 'Tullia can be performed without anesthesia. Self-administered nitrous oxide is available should you choose to have it.',
   },
   {
     icon: Activity,
