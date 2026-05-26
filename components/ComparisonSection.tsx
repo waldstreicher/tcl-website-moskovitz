@@ -10,7 +10,7 @@ const fadeUp = {
 
 const rows = [
   { feature: 'Procedure Time', tcl: '15 minutes', lipo: '1–3 hours', non: '35–60 min/session' },
-  { feature: 'Anesthesia', tcl: 'None required', lipo: 'Combination of general, IV, oral narcotics/anxiolytics', non: 'None' },
+  { feature: 'Anesthesia', tcl: 'None required (optional nitrous)', lipo: 'Combination of general, IV, oral narcotics/anxiolytics', non: 'None' },
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
   { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
