@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { CheckCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, AlertCircle, Calendar, Clock, Timer, MapPin, Gift } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '@/lib/emailjs';
 import Navbar from '@/components/Navbar';
@@ -88,21 +88,88 @@ export default function TechStudyForm() {
 
       {/* Header */}
       <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-tcl-alt">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-tcl-gold" />
-            <span className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-sans">
-              Kari Medical
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          {/* Sponsored by */}
+          <p className="text-center text-tcl-gray text-sm mb-4">
+            Sponsored by{' '}
+            <span className="font-semibold tracking-wide text-tcl-dark">
+              KARI MEDICAL
             </span>
-            <div className="h-px w-12 bg-tcl-gold" />
-          </div>
-          <h1 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">
-            Medical Device Summative Study
-          </h1>
-          <p className="text-tcl-gray text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-            Thank you for your interest in participating. Please complete the
-            form below to share your availability and contact information.
           </p>
+
+          {/* Sub-banner */}
+          <div className="mx-auto mb-10 max-w-3xl bg-tcl-gold text-white text-center text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold py-3 px-6 rounded-sm">
+            OR Surgical Techs Needed · Paid Research Study
+          </div>
+
+          {/* Hook */}
+          <div className="text-center mb-10">
+            <h1 className="font-serif text-5xl lg:text-7xl text-tcl-dark font-semibold mb-3">
+              Earn $200
+            </h1>
+            <p className="font-serif text-xl lg:text-2xl text-tcl-gray italic">
+              for 90 minutes of your time
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px w-24 bg-tcl-gold mx-auto mb-10" />
+
+          {/* What is it? */}
+          <div className="text-center mb-12 max-w-xl mx-auto">
+            <p className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-sans font-semibold mb-4">
+              What is it?
+            </p>
+            <p className="font-serif text-xl text-tcl-dark mb-3">
+              Medical Device Summative Study
+            </p>
+            <p className="text-tcl-gray text-base leading-relaxed">
+              OR Surgical Techs pair with a doctor to operate a device. Includes
+              training, hands-on use & debrief.
+            </p>
+          </div>
+
+          {/* Info grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: Calendar, label: 'Dates', value: 'June 15 & 16, 2025' },
+              { icon: Clock, label: 'Time Slots', value: '8:00 AM – 4:00 PM' },
+              { icon: Timer, label: 'Duration', value: '90 Minutes' },
+              {
+                icon: MapPin,
+                label: 'Location',
+                value: '67 Route 59\nSpring Valley, NY 10977',
+              },
+              {
+                icon: Gift,
+                label: 'Compensation',
+                value: '$200 Amazon Gift Card',
+              },
+            ].map(({ icon: Icon, label, value }) => (
+              <div
+                key={label}
+                className="bg-white border border-tcl-border rounded-lg p-5 text-center"
+              >
+                <Icon className="text-tcl-gold mx-auto mb-2" size={20} />
+                <p className="text-tcl-gold text-xs tracking-[0.2em] uppercase font-semibold mb-2">
+                  {label}
+                </p>
+                <p className="text-tcl-dark text-sm font-medium whitespace-pre-line">
+                  {value}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA lead-in */}
+          <div className="text-center mt-14">
+            <p className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-semibold mb-2">
+              Reserve Your Spot
+            </p>
+            <p className="text-tcl-gray text-base">
+              Sign up using the form below.
+            </p>
+          </div>
         </div>
       </section>
 
