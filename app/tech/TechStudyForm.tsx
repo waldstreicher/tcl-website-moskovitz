@@ -132,7 +132,7 @@ export default function TechStudyForm() {
           {/* Info grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: Calendar, label: 'Dates', value: 'June 15 & 16, 2025' },
+              { icon: Calendar, label: 'Dates', value: 'June 15 & 16, 2026' },
               { icon: Clock, label: 'Time Slots', value: '8:00 AM – 4:00 PM' },
               { icon: Timer, label: 'Duration', value: '90 Minutes' },
               {
