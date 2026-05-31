@@ -99,7 +99,7 @@ export default function RNStudyForm() {
 
           {/* Sub-banner */}
           <div className="mx-auto mb-10 max-w-3xl bg-tcl-gold text-white text-center text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold py-3 px-6 rounded-sm">
-            OR Nurses Needed · Paid Research Study
+            Nurses Needed · Paid Research Study
           </div>
 
           {/* Hook */}
