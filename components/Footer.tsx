@@ -57,7 +57,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8 space-y-4">
           <p className="text-sm text-white/50 text-center">
-            &copy; 2025 Tullia. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
+            &copy; {new Date().getFullYear()} Tullia. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
           </p>
           <p className="text-xs text-white/30 text-center max-w-3xl mx-auto leading-relaxed">
             The Tullia procedure is a minimally invasive surgical treatment. Results may vary. This website is for
