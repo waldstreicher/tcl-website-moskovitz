@@ -105,7 +105,7 @@ export default function TechStudyForm() {
           {/* Hook */}
           <div className="text-center mb-10">
             <h1 className="font-serif text-5xl lg:text-7xl text-tcl-dark font-semibold mb-3">
-              Earn $200
+              Earn $300
             </h1>
             <p className="font-serif text-xl lg:text-2xl text-tcl-gray italic">
               for 90 minutes of your time
@@ -143,7 +143,7 @@ export default function TechStudyForm() {
               {
                 icon: Gift,
                 label: 'Compensation',
-                value: '$200 Amazon Gift Card',
+                value: '$300 Amazon Gift Card',
               },
             ].map(({ icon: Icon, label, value }) => (
               <div
