@@ -4,11 +4,13 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tullia | Revolutionary Body Contouring by Dr. Moskovitz',
+  metadataBase: new URL('https://www.tumescentlipolysis.com'),
+  alternates: { canonical: '/' },
+  title: 'TuLi | Revolutionary Body Contouring by Dr. Moskovitz',
   description:
-    'Tullia is a breakthrough minimally invasive body contouring procedure. 15-minute treatment, no anesthesia, immediate return to activity. Developed by Dr. Martin Moskovitz, MD, FACS.',
+    'TuLi is a breakthrough minimally invasive body contouring procedure. 15-minute treatment, no anesthesia, immediate return to activity. Developed by Dr. Martin Moskovitz, MD, FACS.',
   keywords: [
-    'Tullia',
+    'TuLi',
     'tumescent lipolysis',
     'body contouring',
     'liposuction alternative',
@@ -16,8 +18,9 @@ export const metadata: Metadata = {
     'Spring Valley NY',
   ],
   openGraph: {
-    title: 'Tullia — A New Era in Body Contouring',
+    title: 'TuLi — A New Era in Body Contouring',
     description: 'Reshape your body in 15 minutes. No anesthesia. No down time.',
+    url: 'https://www.tumescentlipolysis.com',
     type: 'website',
   },
 };

@@ -1,6 +1,14 @@
-# Tumescent Cryolipolysis (TCL) Website
+# TuLi (Tumescent Lipolysis) Website
 
-A premium, production-ready Next.js 14 website for the TCL procedure by Dr. Martin Moskovitz, MD, FACS.
+A premium, production-ready Next.js 14 website for the TuLi procedure by Dr. Martin Moskovitz, MD, FACS.
+Live at [www.tumescentlipolysis.com](https://www.tumescentlipolysis.com).
+
+## Brand
+
+The TuLi wordmark is direction **1f** from the brand handoff: a two-tone camel-case Montserrat
+lockup — `Tu` in ink, `Li` in gold — over the `TUMESCENT LIPOLYSIS` tagline. It lives in one place,
+[`components/Wordmark.tsx`](components/Wordmark.tsx); use `variant="dark"` over dark backgrounds.
+The circular app-icon treatment is [`app/icon.svg`](app/icon.svg).
 
 ## Getting Started
 
@@ -17,7 +25,7 @@ export const EMAILJS_CONFIG = {
   serviceId: 'your_service_id',
   templateId: 'your_template_id',
   publicKey: 'your_public_key',
-  toEmail: 'info@tumescentcryolipolysis.com',
+  toEmail: 'jwaldstreicher@karimedical.com',
 };
 ```
 

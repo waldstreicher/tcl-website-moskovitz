@@ -9,15 +9,15 @@ import { getPosts } from '@/lib/wordpress';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Blog — Tullia Procedure',
+  title: 'Blog — TuLi Procedure',
   description:
     'Articles, guides, and the latest research on tumescent cryolipolysis and non-surgical body contouring.',
-  alternates: { canonical: 'https://www.tulliaprocedure.com/blog' },
+  alternates: { canonical: 'https://www.tumescentlipolysis.com/blog' },
   openGraph: {
-    title: 'Blog — Tullia Procedure',
+    title: 'Blog — TuLi Procedure',
     description:
       'Articles, guides, and the latest research on tumescent cryolipolysis and non-surgical body contouring.',
-    url: 'https://www.tulliaprocedure.com/blog',
+    url: 'https://www.tumescentlipolysis.com/blog',
     type: 'website',
   },
 };
@@ -48,7 +48,7 @@ export default async function BlogIndexPage() {
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
           <h1 className="font-serif text-5xl lg:text-6xl text-tcl-dark font-semibold mb-4">
-            The Tullia Blog
+            The TuLi Blog
           </h1>
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto">
             Guides, research, and patient perspectives on tumescent cryolipolysis
@@ -86,7 +86,7 @@ export default async function BlogIndexPage() {
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="font-serif text-3xl text-tcl-gold/40">
-                          Tullia
+                          TuLi
                         </span>
                       </div>
                     )}

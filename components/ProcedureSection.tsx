@@ -22,7 +22,7 @@ const cards = [
   {
     icon: ShieldCheck,
     title: 'No Anesthesia Required',
-    body: 'Tullia can be performed without anesthesia. Self-administered nitrous oxide is available should you choose to have it.',
+    body: 'TuLi can be performed without anesthesia. Self-administered nitrous oxide is available should you choose to have it.',
   },
   {
     icon: Activity,
@@ -37,12 +37,12 @@ const cards = [
   {
     icon: HeartPulse,
     title: 'No Special Post-Op Care',
-    body: 'Forget compression garments and drainage tubes. Tullia requires none of the typical post-operative care of traditional liposuction.',
+    body: 'Forget compression garments and drainage tubes. TuLi requires none of the typical post-operative care of traditional liposuction.',
   },
   {
     icon: Zap,
     title: 'Lasting Results',
-    body: 'Tullia permanently removes fat cells, delivering sculpted, natural-looking contours that last.',
+    body: 'TuLi permanently removes fat cells, delivering sculpted, natural-looking contours that last.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function ProcedureSection() {
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">
-            The Tullia Procedure
+            The TuLi Procedure
           </h2>
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto leading-relaxed">
             A minimally invasive body sculpting procedure that delivers results no other treatment can match.

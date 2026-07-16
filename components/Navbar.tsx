@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Wordmark from './Wordmark';
 
 const navLinks = [
   { label: 'The Procedure', href: '/#procedure' },
@@ -37,13 +38,8 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="flex flex-col leading-none">
-            <span className={`font-serif text-3xl font-semibold tracking-wider ${scrolled ? 'text-tcl-dark' : 'text-white'}`}>
-              Tullia
-            </span>
-            <span className={`text-[10px] tracking-[0.2em] uppercase font-sans ${scrolled ? 'text-tcl-gray' : 'text-white/80'}`}>
-              Tumescent Lipolysis
-            </span>
+          <a href="/" aria-label="TuLi — Tumescent Lipolysis">
+            <Wordmark variant={scrolled ? 'light' : 'dark'} />
           </a>
 
           {/* Desktop nav */}

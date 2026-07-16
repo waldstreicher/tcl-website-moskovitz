@@ -1,4 +1,5 @@
 import { Phone } from 'lucide-react';
+import Wordmark from './Wordmark';
 
 const footerLinks = [
   { label: 'The Procedure', href: '/#procedure' },
@@ -16,8 +17,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <span className="font-serif text-3xl font-semibold tracking-wider text-white">Tullia</span>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/50 mt-0.5">Tumescent Lipolysis</p>
+              <Wordmark variant="dark" />
             </div>
             <p className="text-white/60 text-sm leading-relaxed italic font-serif">
               &ldquo;A new era in body contouring.&rdquo;
@@ -57,10 +57,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8 space-y-4">
           <p className="text-sm text-white/50 text-center">
-            &copy; {new Date().getFullYear()} Tullia. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
+            &copy; {new Date().getFullYear()} TuLi. All rights reserved. Procedure developed by Dr. Martin Moskovitz, MD, FACS.
           </p>
           <p className="text-xs text-white/30 text-center max-w-3xl mx-auto leading-relaxed">
-            The Tullia procedure is a minimally invasive surgical treatment. Results may vary. This website is for
+            The TuLi procedure is a minimally invasive surgical treatment. Results may vary. This website is for
             informational purposes only and does not constitute medical advice. Please consult a qualified physician
             before undergoing any surgical procedure.
           </p>

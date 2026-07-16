@@ -22,13 +22,13 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const article = await getPostBySlug(params.slug);
-  if (!article) return { title: 'Article not found — Tullia Procedure' };
+  if (!article) return { title: 'Article not found — TuLi Procedure' };
 
-  const url = `https://www.tulliaprocedure.com/blog/${article.slug}`;
+  const url = `https://www.tumescentlipolysis.com/blog/${article.slug}`;
   const image = article.featuredImage?.url;
 
   return {
-    title: `${article.title} — Tullia Procedure`,
+    title: `${article.title} — TuLi Procedure`,
     description: article.excerpt || undefined,
     alternates: { canonical: url },
     openGraph: {
@@ -71,16 +71,16 @@ export default async function ArticlePage({ params }: { params: Params }) {
     dateModified: article.modifiedDate,
     author: article.authorName
       ? { '@type': 'Person', name: article.authorName }
-      : { '@type': 'Organization', name: 'Tullia Procedure' },
+      : { '@type': 'Organization', name: 'TuLi Procedure' },
     publisher: {
       '@type': 'Organization',
-      name: 'Tullia Procedure',
-      url: 'https://www.tulliaprocedure.com',
+      name: 'TuLi Procedure',
+      url: 'https://www.tumescentlipolysis.com',
     },
     image: article.featuredImage?.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://www.tulliaprocedure.com/blog/${article.slug}`,
+      '@id': `https://www.tumescentlipolysis.com/blog/${article.slug}`,
     },
   };
 
@@ -145,7 +145,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
             </h3>
             <p className="text-tcl-gray text-sm mb-6 max-w-md mx-auto">
               Request a consultation with Dr. Moskovitz to discuss whether the
-              Tullia procedure is right for you.
+              TuLi procedure is right for you.
             </p>
             <Link
               href="/#consult"

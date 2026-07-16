@@ -20,6 +20,7 @@ const config: Config = {
       fontFamily: {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        wordmark: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       typography: ({ theme }: { theme: (k: string) => string }) => ({
         DEFAULT: {
