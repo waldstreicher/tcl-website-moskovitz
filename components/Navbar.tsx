@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'The Procedure', href: '/#procedure' },
   { label: 'About', href: '/#about' },
   { label: 'Locations', href: '/#location' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/#consult' },
 ];
 
