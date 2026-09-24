@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, Phone, ArrowRight } from 'lucide-react';
+import PhoneLink from './PhoneLink';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -69,7 +70,7 @@ export default function LocationSection() {
                 <Phone className="text-tcl-gold shrink-0" size={18} />
                 <div>
                   <p className="text-sm font-medium text-tcl-dark">Phone</p>
-                  <a href="tel:+12012251101" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">(201) 225-1101</a>
+                  <PhoneLink href="tel:+12012251101" className="text-sm text-tcl-gray hover:text-tcl-gold transition-colors">(201) 225-1101</PhoneLink>
                 </div>
               </div>
             </div>

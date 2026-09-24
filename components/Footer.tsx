@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react';
 import Wordmark from './Wordmark';
+import PhoneLink from './PhoneLink';
 
 const footerLinks = [
   { label: 'The Procedure', href: '/#procedure' },
@@ -42,10 +43,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xs tracking-widest uppercase text-white/50 mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href="tel:+12012251101" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
+              <PhoneLink href="tel:+12012251101" className="flex items-center gap-2 text-sm text-white/70 hover:text-tcl-gold transition-colors">
                 <Phone size={14} className="text-tcl-gold" />
                 (201) 225-1101
-              </a>
+              </PhoneLink>
               <p className="text-sm text-white/50">
                 67 NY-59, Suite 211<br />
                 Spring Valley, NY 10977

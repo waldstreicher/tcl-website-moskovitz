@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '@/lib/emailjs';
+import { trackFbq } from '@/lib/fbq';
 import Image from 'next/image';
 
 const fadeUp = {
@@ -80,6 +81,11 @@ export default function ConsultationForm() {
       } else {
         console.warn('NEXT_PUBLIC_CRM_INTAKE_URL is not set');
       }
+
+      // Fire the Meta Pixel Lead event only here: handleSubmit runs onSubmit
+      // only after validation passes, and this line is reached only after the
+      // notification send succeeds — failed sends fall through to the catch.
+      trackFbq('Lead');
 
       setSubmitState('success');
       reset();
