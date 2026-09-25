@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle } from 'lucide-react';
@@ -31,11 +31,19 @@ const areaOptions = [
 
 export default function ConsultationForm() {
   const [submitState, setSubmitState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  // Synchronous re-entry guard: the disabled button blocks double-clicks only
+  // after React re-renders, so a fast second click could otherwise re-enter
+  // onSubmit before that and fire a second send + Lead. Setting this before any
+  // await closes that race; the finally resets it so a retry after an error
+  // still works.
+  const submittingRef = useRef(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     defaultValues: { preferredContact: 'Email', areas: [] },
   });
 
   const onSubmit = async (data: FormData) => {
+    if (submittingRef.current) return;
+    submittingRef.current = true;
     setSubmitState('loading');
     try {
       // Send email notification via EmailJS
@@ -91,6 +99,8 @@ export default function ConsultationForm() {
       reset();
     } catch {
       setSubmitState('error');
+    } finally {
+      submittingRef.current = false;
     }
   };
 
