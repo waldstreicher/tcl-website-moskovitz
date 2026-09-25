@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     url: 'https://www.tumescentlipolysis.com',
     type: 'website',
   },
+  // Meta (Facebook) Business domain verification. Rendered server-side into
+  // <head> as <meta name="facebook-domain-verification" content="...">; Meta
+  // requires it there and not injected by JS.
+  verification: {
+    other: {
+      'facebook-domain-verification': '2mtawqpasp93tr9a6xl6qj2fx1zd4y',
+    },
+  },
 };
 
 export default function RootLayout({
