@@ -46,18 +46,22 @@ export default function ConsultationForm() {
     submittingRef.current = true;
     setSubmitState('loading');
     try {
-      // Send email notification via EmailJS
+      // Notification email — intentionally contains NO patient-identifying
+      // information. Email is not a secure channel for PII, so this only says a
+      // request came in; the full lead (name, contact, areas, message) is
+      // delivered to the CRM below. Any {{name}}/{{phone}}/etc. placeholders
+      // still present in the EmailJS template will render blank because those
+      // params are no longer sent.
       await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
         {
-          from_name: `${data.firstName} ${data.lastName}`,
-          from_email: data.email,
-          phone: data.phone || 'Not provided',
-          preferred_contact: data.preferredContact,
-          areas: data.areas.join(', ') || 'Not specified',
-          message: data.message || 'No message',
           to_email: EMAILJS_CONFIG.toEmail,
+          from_name: 'TuLi Website',
+          message:
+            'A new consultation request was submitted on the TuLi website. ' +
+            'No personal information is included in this notification — the ' +
+            'full details are available in the CRM.',
         },
         EMAILJS_CONFIG.publicKey
       );
