@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProcedureSection from '@/components/ProcedureSection';
+import CandidacySection from '@/components/CandidacySection';
 import ComparisonSection from '@/components/ComparisonSection';
 import AboutSection from '@/components/AboutSection';
 // import BeforeAfterGallery from '@/components/BeforeAfterGallery';  // temporarily hidden
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProcedureSection />
+      <CandidacySection />
       <ComparisonSection />
       <AboutSection />
       {/* <BeforeAfterGallery /> */}  {/* temporarily hidden — uncomment to restore */}

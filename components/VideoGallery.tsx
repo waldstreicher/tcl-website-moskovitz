@@ -17,7 +17,7 @@ const stagger = {
 const videos = [
   { name: 'Sarah', area: 'Abdomen & Waist', thumbnail: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80', videoUrl: 'https://www.youtube.com/embed/placeholder1', slot: 'video-testimonial-1' },
   { name: 'Jennifer', area: 'Thighs & Hips', thumbnail: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80', videoUrl: 'https://www.youtube.com/embed/placeholder2', slot: 'video-testimonial-2' },
-  { name: 'Michelle', area: 'Arms & Back', thumbnail: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=600&q=80', videoUrl: 'https://www.youtube.com/embed/placeholder3', slot: 'video-testimonial-3' },
+  { name: 'Michelle', area: 'Arms & Chin', thumbnail: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=600&q=80', videoUrl: 'https://www.youtube.com/embed/placeholder3', slot: 'video-testimonial-3' },
 ];
 
 export default function VideoGallery() {

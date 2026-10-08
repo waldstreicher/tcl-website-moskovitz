@@ -21,7 +21,6 @@ const beforeAfterImages: GalleryItem[] = [
   { src: '/abdomen-before-after.jpg', area: 'Abdomen' },
   { src: '/hips-before-after.jpg',    area: 'Waist & Hips' },
   { src: '/arms-before-after.jpg',    area: 'Arms' },
-  { src: '/back-before-after.jpg',    area: 'Back' },
   { src: '/thighs-before-after.jpg',  area: 'Thighs' },
   { beforeSrc: '/chin-before.jpg', afterSrc: '/chin-after.jpg', area: 'Chin' },
 ];

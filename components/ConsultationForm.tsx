@@ -21,11 +21,14 @@ type FormData = {
   phone: string;
   preferredContact: 'Phone' | 'Email';
   areas: string[];
+  primaryGoal: 'Fat reduction' | 'Skin tightening' | 'Both' | 'Not sure';
   message: string;
 };
 
+const goalOptions: FormData['primaryGoal'][] = ['Fat reduction', 'Skin tightening', 'Both', 'Not sure'];
+
 const areaOptions = [
-  'Arms', 'Chin', 'Male Chest', 'Stomach', 'Back',
+  'Arms', 'Chin', 'Male Chest', 'Stomach',
   'Hips', 'Thighs', 'Legs', 'Female Breasts', 'Buttocks',
 ];
 
@@ -37,9 +40,10 @@ export default function ConsultationForm() {
   // await closes that race; the finally resets it so a retry after an error
   // still works.
   const submittingRef = useRef(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>({
     defaultValues: { preferredContact: 'Email', areas: [] },
   });
+  const primaryGoal = watch('primaryGoal');
 
   const onSubmit = async (data: FormData) => {
     if (submittingRef.current) return;
@@ -80,7 +84,14 @@ export default function ConsultationForm() {
               phone: data.phone || null,
               preferred_contact: data.preferredContact.toLowerCase(),
               areas_of_interest: data.areas,
-              message: data.message || null,
+              // Sent as its own field for when the CRM intake accepts it, AND
+              // prefixed onto message so it's visible in the CRM today — the
+              // current intake endpoint only stores the fixed field set and
+              // silently drops unknown keys like primary_goal.
+              primary_goal: data.primaryGoal || null,
+              message:
+                `[Primary goal: ${data.primaryGoal || 'Not specified'}]` +
+                (data.message ? `\n\n${data.message}` : ''),
             }),
           });
           if (!crmRes.ok) {
@@ -121,7 +132,13 @@ export default function ConsultationForm() {
             <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-3">
               Request a Consultation
             </h2>
-            <p className="text-tcl-gray mb-10">Take the first step toward the body you&apos;ve always wanted.</p>
+            <p className="text-tcl-gray mb-2">Take the first step toward the body you&apos;ve always wanted.</p>
+            <p className="text-tcl-gray text-sm mb-10">
+              TuLi is a fat reduction procedure, not a skin tightening treatment.{' '}
+              <a href="/#candidacy" className="text-tcl-gold-dark underline underline-offset-4 hover:text-tcl-gold transition-colors">
+                See if it&apos;s right for you.
+              </a>
+            </p>
 
             {submitState === 'success' ? (
               <div className="flex items-start gap-4 p-6 bg-green-50 border border-green-200 rounded-lg">
@@ -198,6 +215,32 @@ export default function ConsultationForm() {
                       </label>
                     ))}
                   </div>
+                </div>
+
+                <div>
+                  <p className="block text-sm font-medium text-tcl-dark mb-2">
+                    What&apos;s your primary goal? <span className="text-tcl-gold">*</span>
+                  </p>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    {goalOptions.map((opt) => (
+                      <label key={opt} className="flex items-center gap-2 cursor-pointer text-sm text-tcl-gray">
+                        <input
+                          type="radio"
+                          value={opt}
+                          {...register('primaryGoal', { required: 'Please select your primary goal' })}
+                          className="accent-tcl-gold"
+                        />
+                        {opt}
+                      </label>
+                    ))}
+                  </div>
+                  {errors.primaryGoal && <p className="text-red-500 text-xs mt-1">{errors.primaryGoal.message}</p>}
+                  {primaryGoal === 'Skin tightening' && (
+                    <p className="mt-3 p-3 bg-tcl-alt border border-tcl-border rounded-sm text-xs text-tcl-gray leading-relaxed">
+                      TuLi targets fat, not skin laxity. You&apos;re welcome to submit this request — we&apos;ll let
+                      you know honestly whether TuLi or a different procedure is the better fit.
+                    </p>
+                  )}
                 </div>
 
                 <div>

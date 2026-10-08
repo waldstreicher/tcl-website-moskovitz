@@ -17,7 +17,7 @@ const cards = [
   {
     icon: Clock,
     title: '15-Minute Treatment',
-    body: 'The complete procedure — including abdomen, back, thighs, arms, and chin — takes just 15 minutes in the office.',
+    body: 'The complete procedure — including abdomen, hips, thighs, arms, and chin — takes just 15 minutes in the office.',
   },
   {
     icon: ShieldCheck,
@@ -32,7 +32,7 @@ const cards = [
   {
     icon: Sparkles,
     title: 'Multiple Areas in One Visit',
-    body: 'Treat the abdomen, back, thighs, arms, and chin in a single 15-minute session.',
+    body: 'Treat the abdomen, hips, thighs, arms, and chin in a single 15-minute session.',
   },
   {
     icon: HeartPulse,
