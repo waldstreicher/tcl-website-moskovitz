@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { CheckCircle, AlertCircle } from 'lucide-react';
@@ -40,6 +41,7 @@ export default function ConsultationForm() {
   // await closes that race; the finally resets it so a retry after an error
   // still works.
   const submittingRef = useRef(false);
+  const router = useRouter();
   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>({
     defaultValues: { preferredContact: 'Email', areas: [] },
   });
@@ -49,6 +51,8 @@ export default function ConsultationForm() {
     if (submittingRef.current) return;
     submittingRef.current = true;
     setSubmitState('loading');
+    // Issued by the CRM on intake; sends the prospect to /schedule to book a call.
+    let bookingToken: string | null = null;
     try {
       // Notification email — intentionally contains NO patient-identifying
       // information. Email is not a secure channel for PII, so this only says a
@@ -97,6 +101,9 @@ export default function ConsultationForm() {
           if (!crmRes.ok) {
             const errText = await crmRes.text();
             console.error('CRM intake failed:', crmRes.status, errText);
+          } else {
+            const crmData = await crmRes.json().catch(() => null);
+            bookingToken = crmData?.booking_token || null;
           }
         } catch (crmErr) {
           console.error('CRM intake error:', crmErr);
@@ -112,6 +119,11 @@ export default function ConsultationForm() {
 
       setSubmitState('success');
       reset();
+      // Straight to the scheduling page. If the CRM didn't issue a token (CRM
+      // unreachable or not configured), the inline thank-you is the fallback.
+      if (bookingToken) {
+        router.push(`/schedule?t=${encodeURIComponent(bookingToken)}`);
+      }
     } catch {
       setSubmitState('error');
     } finally {
