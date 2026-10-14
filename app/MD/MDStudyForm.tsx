@@ -67,7 +67,6 @@ export default function MDStudyForm() {
           preferred_contact: 'Email',
           areas: `Medical degree: ${data.medicalDegree}`,
           message: messageBody,
-          to_email: EMAILJS_CONFIG.toEmail,
         },
         EMAILJS_CONFIG.publicKey
       );

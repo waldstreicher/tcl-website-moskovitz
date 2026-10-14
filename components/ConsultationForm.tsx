@@ -54,27 +54,9 @@ export default function ConsultationForm() {
     // Issued by the CRM on intake; sends the prospect to /schedule to book a call.
     let bookingToken: string | null = null;
     try {
-      // Notification email — intentionally contains NO patient-identifying
-      // information. Email is not a secure channel for PII, so this only says a
-      // request came in; the full lead (name, contact, areas, message) is
-      // delivered to the CRM below. Any {{name}}/{{phone}}/etc. placeholders
-      // still present in the EmailJS template will render blank because those
-      // params are no longer sent.
-      await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        {
-          to_email: EMAILJS_CONFIG.toEmail,
-          from_name: 'TuLi Website',
-          message:
-            'A new consultation request was submitted on the TuLi website. ' +
-            'No personal information is included in this notification — the ' +
-            'full details are available in the CRM.',
-        },
-        EMAILJS_CONFIG.publicKey
-      );
-
-      // Send to CRM
+      // 1. CRM first — it is the system of record. A lead must never be lost
+      //    because the courtesy email below fails.
+      let crmOk = false;
       const crmUrl = process.env.NEXT_PUBLIC_CRM_INTAKE_URL;
       if (crmUrl) {
         try {
@@ -102,6 +84,7 @@ export default function ConsultationForm() {
             const errText = await crmRes.text();
             console.error('CRM intake failed:', crmRes.status, errText);
           } else {
+            crmOk = true;
             const crmData = await crmRes.json().catch(() => null);
             bookingToken = crmData?.booking_token || null;
           }
@@ -112,9 +95,39 @@ export default function ConsultationForm() {
         console.warn('NEXT_PUBLIC_CRM_INTAKE_URL is not set');
       }
 
+      // 2. Courtesy notification — intentionally contains NO patient-identifying
+      //    information (email is not a secure channel for PII; the full lead is
+      //    in the CRM). The recipient is configured in the EmailJS template's
+      //    "To Email" field, so no address is ever sent from, or visible in,
+      //    the browser.
+      let emailOk = false;
+      try {
+        await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          {
+            from_name: 'TuLi Website',
+            message:
+              'A new consultation request was submitted on the TuLi website. ' +
+              'No personal information is included in this notification — the ' +
+              'full details are available in the CRM.',
+          },
+          EMAILJS_CONFIG.publicKey
+        );
+        emailOk = true;
+      } catch (emailErr) {
+        console.error('Notification email failed:', emailErr);
+      }
+
+      // The request counts as received if either channel captured it.
+      if (!crmOk && !emailOk) {
+        setSubmitState('error');
+        return;
+      }
+
       // Fire the Meta Pixel Lead event only here: handleSubmit runs onSubmit
-      // only after validation passes, and this line is reached only after the
-      // notification send succeeds — failed sends fall through to the catch.
+      // only after validation passes, and this line is reached only once the
+      // request has actually been captured.
       trackFbq('Lead');
 
       setSubmitState('success');

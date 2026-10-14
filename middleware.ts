@@ -10,7 +10,7 @@ import type { NextRequest } from 'next/server';
 // Note: we can't use next.config.js `redirects()` for this — its
 // `source` matching is case-INSENSITIVE (path-to-regexp default), so
 // `/md` matches `/MD` too and creates a self-redirect loop.
-const CASE_SENSITIVE_ROUTES = ['/MD', '/RN', '/tech'];
+const CASE_SENSITIVE_ROUTES = ['/MD'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -32,12 +32,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Next.js middleware matchers behave inconsistently on case (they
   // catch the canonical and the fully-lowercase form but not mixed
-  // case like /Md), so list every casing explicitly for short paths.
-  // /tech is 4 chars (16 case variants); we only enumerate the
-  // realistic iOS auto-cap forms.
-  matcher: [
-    '/md', '/Md', '/mD', '/MD',
-    '/rn', '/Rn', '/rN', '/RN',
-    '/tech', '/Tech', '/TECH',
-  ],
+  // case like /Md), so list every casing explicitly.
+  matcher: ['/md', '/Md', '/mD', '/MD'],
 };
