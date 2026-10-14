@@ -19,8 +19,6 @@ type FormData = {
 
 const timeSlots = ['8 AM – 10 AM', '10 AM – noon', 'Noon – 2 PM', '2 PM – 4 PM'];
 
-const RECIPIENT_EMAIL = 'jwaldstreicher@karimedical.com';
-
 export default function MDStudyForm() {
   const [submitState, setSubmitState] = useState<
     'idle' | 'loading' | 'success' | 'error'
@@ -69,7 +67,7 @@ export default function MDStudyForm() {
           preferred_contact: 'Email',
           areas: `Medical degree: ${data.medicalDegree}`,
           message: messageBody,
-          to_email: RECIPIENT_EMAIL,
+          to_email: EMAILJS_CONFIG.toEmail,
         },
         EMAILJS_CONFIG.publicKey
       );
@@ -92,7 +90,7 @@ export default function MDStudyForm() {
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-tcl-gold" />
             <span className="text-tcl-gold text-xs tracking-[0.25em] uppercase font-sans">
-              Kari Medical
+              Clinical Study
             </span>
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
@@ -283,13 +281,10 @@ export default function MDStudyForm() {
                     size={18}
                   />
                   <p className="text-sm text-red-700">
-                    Something went wrong. Please email us directly at{' '}
-                    <a
-                      href={`mailto:${RECIPIENT_EMAIL}`}
-                      className="underline"
-                    >
-                      {RECIPIENT_EMAIL}
-                    </a>
+                    Something went wrong. Please try again, or call{' '}
+                    <a href="tel:+12012251101" className="underline">
+                      (201) 225-1101
+                    </a>.
                   </p>
                 </div>
               )}

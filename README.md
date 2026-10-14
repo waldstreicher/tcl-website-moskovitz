@@ -25,7 +25,7 @@ export const EMAILJS_CONFIG = {
   serviceId: 'your_service_id',
   templateId: 'your_template_id',
   publicKey: 'your_public_key',
-  toEmail: 'jwaldstreicher@karimedical.com',
+  toEmail: process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL ?? '', // set in .env.local / Vercel
 };
 ```
 

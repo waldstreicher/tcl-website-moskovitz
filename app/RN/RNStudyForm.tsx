@@ -19,8 +19,6 @@ type FormData = {
 
 const timeSlots = ['8 AM – 10 AM', '10 AM – noon', 'Noon – 2 PM', '2 PM – 4 PM'];
 
-const RECIPIENT_EMAIL = 'jwaldstreicher@karimedical.com';
-
 export default function RNStudyForm() {
   const [submitState, setSubmitState] = useState<
     'idle' | 'loading' | 'success' | 'error'
@@ -69,7 +67,7 @@ export default function RNStudyForm() {
           preferred_contact: 'Email',
           areas: `Nursing degree: ${data.nursingDegree}`,
           message: messageBody,
-          to_email: RECIPIENT_EMAIL,
+          to_email: EMAILJS_CONFIG.toEmail,
         },
         EMAILJS_CONFIG.publicKey
       );
@@ -89,14 +87,6 @@ export default function RNStudyForm() {
       {/* Header */}
       <section className="pt-32 lg:pt-40 pb-12 lg:pb-16 bg-tcl-alt">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          {/* Sponsored by */}
-          <p className="text-center text-tcl-gray text-sm mb-4">
-            Sponsored by{' '}
-            <span className="font-semibold tracking-wide text-tcl-dark">
-              KARI MEDICAL
-            </span>
-          </p>
-
           {/* Sub-banner */}
           <div className="mx-auto mb-10 max-w-3xl bg-tcl-gold text-white text-center text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold py-3 px-6 rounded-sm">
             Nurses Needed · Paid Research Study
@@ -350,13 +340,10 @@ export default function RNStudyForm() {
                     size={18}
                   />
                   <p className="text-sm text-red-700">
-                    Something went wrong. Please email us directly at{' '}
-                    <a
-                      href={`mailto:${RECIPIENT_EMAIL}`}
-                      className="underline"
-                    >
-                      {RECIPIENT_EMAIL}
-                    </a>
+                    Something went wrong. Please try again, or call{' '}
+                    <a href="tel:+12012251101" className="underline">
+                      (201) 225-1101
+                    </a>.
                   </p>
                 </div>
               )}

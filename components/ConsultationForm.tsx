@@ -286,10 +286,11 @@ export default function ConsultationForm() {
                   <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={18} />
                     <p className="text-sm text-red-700">
-                      Something went wrong. Please email us directly at{' '}
-                      <a href="mailto:jwaldstreicher@karimedical.com" className="underline">
-                        jwaldstreicher@karimedical.com
+                      Something went wrong. Please call us at{' '}
+                      <a href="tel:+12012251101" className="underline">
+                        (201) 225-1101
                       </a>
+                      {' '}and we&apos;ll get you scheduled.
                     </p>
                   </div>
                 )}
