@@ -20,6 +20,7 @@ type FormData = {
   lastName: string;
   email: string;
   phone: string;
+  zipCode: string;
   preferredContact: 'Phone' | 'Email';
   areas: string[];
   primaryGoal: 'Fat reduction' | 'Skin tightening' | 'Both' | 'Not sure';
@@ -68,6 +69,7 @@ export default function ConsultationForm() {
               last_name: data.lastName,
               email: data.email,
               phone: data.phone || null,
+              zip_code: data.zipCode.trim(),
               preferred_contact: data.preferredContact.toLowerCase(),
               areas_of_interest: data.areas,
               // Sent as its own field for when the CRM intake accepts it, AND
@@ -219,15 +221,37 @@ export default function ConsultationForm() {
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-tcl-dark mb-1.5">Phone Number</label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    {...register('phone')}
-                    className="w-full px-4 py-3 border border-tcl-border rounded-sm text-sm focus:outline-none focus:border-tcl-gold transition-colors bg-white"
-                    placeholder="(555) 000-0000"
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-tcl-dark mb-1.5">Phone Number</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      {...register('phone')}
+                      className="w-full px-4 py-3 border border-tcl-border rounded-sm text-sm focus:outline-none focus:border-tcl-gold transition-colors bg-white"
+                      placeholder="(555) 000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="zipCode" className="block text-sm font-medium text-tcl-dark mb-1.5">
+                      ZIP Code <span className="text-tcl-gold">*</span>
+                    </label>
+                    <input
+                      id="zipCode"
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="postal-code"
+                      maxLength={5}
+                      {...register('zipCode', {
+                        required: 'ZIP code is required',
+                        pattern: { value: /^\d{5}$/, message: 'Enter a 5-digit ZIP code' },
+                        setValueAs: (v: string) => (v ?? '').trim(),
+                      })}
+                      className="w-full px-4 py-3 border border-tcl-border rounded-sm text-sm focus:outline-none focus:border-tcl-gold transition-colors bg-white"
+                      placeholder="07601"
+                    />
+                    {errors.zipCode && <p className="text-red-500 text-xs mt-1">{errors.zipCode.message}</p>}
+                  </div>
                 </div>
 
                 <div>
