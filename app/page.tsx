@@ -10,6 +10,7 @@ import VirtualConsultBanner from '@/components/VirtualConsultBanner';
 import ConsultationForm from '@/components/ConsultationForm';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <ConsultationForm />
       <LocationSection />
       <Footer />
+      <ChatWidget />
     </main>
   );
 }
