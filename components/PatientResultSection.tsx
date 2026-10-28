@@ -35,7 +35,7 @@ export default function PatientResultSection() {
             <div className="h-px w-12 bg-tcl-gold" />
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl text-tcl-dark font-semibold mb-4">
-            One Low-Dose Session, Measured at Five Months
+            Real Results, Measured at Five Months
           </h2>
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto leading-relaxed">
             The same patient before and five months after a single TuLi session in which only the
@@ -59,16 +59,16 @@ export default function PatientResultSection() {
               </p>
             </motion.div>
 
-            <motion.dl variants={fadeUp} className="divide-y divide-tcl-border border-y border-tcl-border">
-              <div className="grid grid-cols-[7rem_1fr] gap-4 py-5">
-                <dt className="font-serif text-xl text-tcl-gold-dark font-medium">Low dose</dt>
-                <dd className="text-tcl-gray leading-relaxed">Intentionally below a therapeutic volume.</dd>
-              </div>
-              <div className="grid grid-cols-[7rem_1fr] gap-4 py-5">
-                <dt className="font-serif text-xl text-tcl-gold-dark font-medium">1 session</dt>
-                <dd className="text-tcl-gray leading-relaxed">No repeat treatment. Results measured at five months.</dd>
-              </div>
-            </motion.dl>
+            <motion.div variants={fadeUp} className="space-y-5">
+              <p className="text-tcl-gray leading-relaxed">
+                By comparison, CoolSculpting typically reduces fat by about{' '}
+                <span className="font-semibold text-tcl-dark">30 mL per session</span>.
+              </p>
+              <p className="text-tcl-gray leading-relaxed border-l-2 border-tcl-gold pl-4">
+                Every TuLi treatment is customized to the patient, based on the patient&apos;s target and
+                the physician&apos;s treatment plan.
+              </p>
+            </motion.div>
           </motion.div>
 
           {/* Before / after */}
