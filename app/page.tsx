@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import ProcedureSection from '@/components/ProcedureSection';
 import CandidacySection from '@/components/CandidacySection';
 import ComparisonSection from '@/components/ComparisonSection';
+import PatientResultSection from '@/components/PatientResultSection';
 import AboutSection from '@/components/AboutSection';
 // import BeforeAfterGallery from '@/components/BeforeAfterGallery';  // temporarily hidden
 // import VideoGallery from '@/components/VideoGallery';               // temporarily hidden
@@ -20,6 +21,7 @@ export default function Home() {
       <ProcedureSection />
       <CandidacySection />
       <ComparisonSection />
+      <PatientResultSection />
       <AboutSection />
       {/* <BeforeAfterGallery /> */}  {/* temporarily hidden — uncomment to restore */}
       {/* <VideoGallery /> */}         {/* temporarily hidden — uncomment to restore */}
