@@ -23,7 +23,7 @@ const goodFit = [
 const notFit = [
   'Are mainly concerned with loose, sagging, or excess skin',
   'Have significant skin laxity after major weight loss or pregnancy',
-  'Are looking for a lift or tightening rather than fat removal',
+  'Are looking for a lift or tightening rather than fat reduction',
 ];
 
 // Candidacy section. TuLi is a fat-reduction procedure, not a skin-tightening
@@ -74,7 +74,7 @@ export default function CandidacySection() {
               <h3 className="font-serif text-xl text-tcl-dark font-medium">What TuLi does</h3>
             </div>
             <p className="text-tcl-gray text-sm leading-relaxed">
-              Permanently removes stubborn pockets of fat — abdomen, hips, thighs, arms, and chin —
+              Permanently treats stubborn pockets of fat — abdomen, hips, thighs, arms, and chin —
               in a single 15-minute visit. It reshapes the areas that don&apos;t respond to diet and
               exercise.
             </p>
@@ -91,7 +91,7 @@ export default function CandidacySection() {
               <h3 className="font-serif text-xl text-tcl-dark font-medium">What TuLi doesn&apos;t do</h3>
             </div>
             <p className="text-tcl-gray text-sm leading-relaxed">
-              TuLi does not tighten, lift, or remove loose skin. Removing fat beneath skin that has
+              TuLi does not tighten, lift, or remove loose skin. Treating fat beneath skin that has
               lost its elasticity will not make that skin firmer — and can make laxity more
               noticeable.
             </p>

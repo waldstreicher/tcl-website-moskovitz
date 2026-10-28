@@ -42,7 +42,7 @@ const cards = [
   {
     icon: Zap,
     title: 'Lasting Results',
-    body: 'TuLi permanently removes fat cells, delivering sculpted, natural-looking contours that last.',
+    body: 'TuLi permanently treats fat cells, delivering sculpted, natural-looking contours that last.',
   },
 ];
 
