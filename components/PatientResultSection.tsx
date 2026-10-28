@@ -61,8 +61,22 @@ export default function PatientResultSection() {
 
             <motion.div variants={fadeUp} className="space-y-5">
               <p className="text-tcl-gray leading-relaxed">
-                By comparison, CoolSculpting typically reduces fat by about{' '}
-                <span className="font-semibold text-tcl-dark">30 mL per session</span>.
+                By comparison, a single CoolSculpting treatment cycle typically reduces fat by about{' '}
+                <span className="font-semibold text-tcl-dark">40 mL</span>
+                <sup className="ml-0.5 text-tcl-gold-dark">1</sup>.
+              </p>
+              <p className="text-xs text-tcl-gray leading-relaxed">
+                <sup className="text-tcl-gold-dark">1</sup> Garibyan L, et al. Three-dimensional volumetric quantification of fat
+                loss following cryolipolysis. <em>Lasers Surg Med.</em> 2014;46(2):75–80 — mean net loss of 39.6 mL at 2
+                months after one cycle.{' '}
+                <a
+                  href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4123113/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-tcl-gold-dark"
+                >
+                  View study
+                </a>
               </p>
               <p className="text-tcl-gray leading-relaxed border-l-2 border-tcl-gold pl-4">
                 Every TuLi treatment is customized to the patient, based on the patient&apos;s target and
