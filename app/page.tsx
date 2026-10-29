@@ -4,7 +4,7 @@ import ProcedureSection from '@/components/ProcedureSection';
 import CandidacySection from '@/components/CandidacySection';
 import ComparisonSection from '@/components/ComparisonSection';
 import PatientResultSection from '@/components/PatientResultSection';
-import AboutSection from '@/components/AboutSection';
+// import AboutSection from '@/components/AboutSection';         // hidden 2026-10-29 — uncomment to restore
 // import BeforeAfterGallery from '@/components/BeforeAfterGallery';  // temporarily hidden
 // import VideoGallery from '@/components/VideoGallery';               // temporarily hidden
 import VirtualConsultBanner from '@/components/VirtualConsultBanner';
@@ -22,7 +22,7 @@ export default function Home() {
       <CandidacySection />
       <ComparisonSection />
       <PatientResultSection />
-      <AboutSection />
+      {/* <AboutSection /> */}        {/* hidden 2026-10-29 — uncomment to restore */}
       {/* <BeforeAfterGallery /> */}  {/* temporarily hidden — uncomment to restore */}
       {/* <VideoGallery /> */}         {/* temporarily hidden — uncomment to restore */}
       <VirtualConsultBanner />
