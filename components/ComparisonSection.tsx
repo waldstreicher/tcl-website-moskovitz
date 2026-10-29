@@ -14,7 +14,7 @@ const rows = [
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
   { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
-  { feature: 'Fat Treated per Session', tcl: '5–10× more than CoolSculpting\nsimilar to a moderate liposuction', lipo: 'Moderate', non: 'Minimal' },
+  { feature: 'Fat Treated per Session', tcl: '5–10× more than CoolSculpting;\nsimilar to a moderate liposuction', lipo: 'Moderate', non: 'Minimal' },
   { feature: 'Post-Op Care', tcl: 'None', lipo: 'Extensive', non: 'None' },
 ];
 
