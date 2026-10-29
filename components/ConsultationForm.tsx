@@ -39,8 +39,7 @@ const areaOptions = [
   'Stomach',
   'Mons',
   'Hips',
-  'Thighs',
-  'Medial Thighs',
+  'Inner Thighs',
   'Knees',
   'Buttock (Banana Roll only)',
 ];
