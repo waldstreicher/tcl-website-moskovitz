@@ -32,7 +32,7 @@ const cards = [
   {
     icon: Sparkles,
     title: 'Multiple Areas in One Visit',
-    body: 'Treat the abdomen, hips, thighs, arms, and chin in a single 15-minute session.',
+    body: 'Treat one body area at a time or multiple areas in the same session, depending on the degree of treatment and the approach developed by the surgeon.',
   },
   {
     icon: HeartPulse,
