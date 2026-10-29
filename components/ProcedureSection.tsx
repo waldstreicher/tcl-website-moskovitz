@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, ShieldCheck, Activity, Sparkles, HeartPulse, Zap } from 'lucide-react';
+import { AccessIllustration, InfiltrateIllustration, CrystallizeIllustration, ClearIllustration } from './ProcessIllustrations';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -49,20 +50,29 @@ const cards = [
 // The technology, in the order it happens during a treatment.
 const steps = [
   {
-    title: 'Numb and enter',
-    body: 'The surgeon numbs the skin with lidocaine and makes a small punch-biopsy entry point near the targeted area. Most procedures use a few entry sites, depending on the anatomy.',
+    title: 'Access',
+    caption: 'Tiny skin incision',
+    body: 'The surgeon makes a tiny incision in the skin to access the target fat tissue.',
+    Illustration: AccessIllustration,
   },
   {
-    title: 'Thread the cannula',
-    body: 'A cannula is threaded under the skin into the fat, similar to liposuction.',
+    title: 'Infiltrate',
+    caption: 'Solution surrounds fat cells',
+    body: 'A cannula infiltrates a cold solution into the fat, deploying ice around the fat cells.',
+    Illustration: InfiltrateIllustration,
   },
   {
-    title: 'Infiltrate the cold solution',
-    body: 'The surgeon infiltrates a cold solution into the deep and superficial fat layers, freezing the fat cells from the inside.',
+    title: 'Crystallize',
+    caption: 'Crystallized cells die',
+    body: 'Crystals form in most of the fat cells, rupturing their membranes, and the cells die.',
+    Illustration: CrystallizeIllustration,
   },
   {
-    title: 'About 5 minutes per area',
-    body: 'Infiltration takes about 5 minutes per body area, with a few more minutes for setup and closing the entry sites.',
+    title: 'Clear',
+    caption: 'Fewer fat cells, for good',
+    body: 'Over about 6 months, the immune system clears the cell fragments. The fat reduction is permanent.',
+    Illustration: ClearIllustration,
+    highlight: true,
   },
 ];
 
@@ -104,9 +114,21 @@ export default function ProcedureSection() {
           </motion.h3>
           <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, i) => (
-              <motion.li key={step.title} variants={fadeUp} className="bg-white border border-tcl-border rounded-lg p-7 flex flex-col">
-                <span className="font-serif text-4xl text-tcl-gold leading-none mb-4">{i + 1}</span>
-                <h4 className="font-serif text-xl text-tcl-dark font-medium mb-2">{step.title}</h4>
+              <motion.li
+                key={step.title}
+                variants={fadeUp}
+                className={`relative bg-white border rounded-lg p-6 flex flex-col ${step.highlight ? 'border-tcl-gold' : 'border-tcl-border'}`}
+              >
+                {/* arrow to the next step (desktop only) */}
+                {i < steps.length - 1 && (
+                  <span aria-hidden className="hidden lg:block absolute top-[88px] -right-[18px] z-10 text-tcl-gold">
+                    <svg width="12" height="14" viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14" fill="currentColor" /></svg>
+                  </span>
+                )}
+                <span className="font-sans text-sm tracking-widest text-tcl-gold font-semibold">0{i + 1}</span>
+                <step.Illustration className="w-full h-auto mt-2 mb-3" />
+                <p className="text-xs text-tcl-gray text-center mb-4">{step.caption}</p>
+                <h4 className={`font-serif text-2xl font-medium mb-2 ${step.highlight ? 'text-tcl-gold-dark' : 'text-tcl-dark'}`}>{step.title}</h4>
                 <p className="text-tcl-gray text-sm leading-relaxed">{step.body}</p>
               </motion.li>
             ))}
