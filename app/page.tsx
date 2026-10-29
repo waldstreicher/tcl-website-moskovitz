@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProcedureSection from '@/components/ProcedureSection';
+import TreatmentExpectationsSection from '@/components/TreatmentExpectationsSection';
 import CandidacySection from '@/components/CandidacySection';
 import ComparisonSection from '@/components/ComparisonSection';
 import PatientResultSection from '@/components/PatientResultSection';
@@ -19,6 +20,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProcedureSection />
+      <TreatmentExpectationsSection />
       <CandidacySection />
       <ComparisonSection />
       <PatientResultSection />

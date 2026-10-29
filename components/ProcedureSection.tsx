@@ -46,6 +46,26 @@ const cards = [
   },
 ];
 
+// The technology, in the order it happens during a treatment.
+const steps = [
+  {
+    title: 'Numb and enter',
+    body: 'The surgeon numbs the skin with lidocaine and makes a small punch-biopsy entry point near the targeted area. Most procedures use a few entry sites, depending on the anatomy.',
+  },
+  {
+    title: 'Thread the cannula',
+    body: 'A cannula is threaded under the skin into the fat, similar to liposuction.',
+  },
+  {
+    title: 'Infiltrate the cold solution',
+    body: 'The surgeon infiltrates a cold solution into the deep and superficial fat layers, freezing the fat cells from the inside.',
+  },
+  {
+    title: 'About 5 minutes per area',
+    body: 'Infiltration takes about 5 minutes per body area, with a few more minutes for setup and closing the entry sites.',
+  },
+];
+
 export default function ProcedureSection() {
   return (
     <section id="procedure" className="py-24 lg:py-32 bg-tcl-bg">
@@ -69,6 +89,34 @@ export default function ProcedureSection() {
           <p className="text-tcl-gray text-lg max-w-2xl mx-auto leading-relaxed">
             A minimally invasive body sculpting procedure that delivers results no other treatment can match.
           </p>
+        </motion.div>
+
+        {/* How it works — the technology, step by step */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="mb-20"
+        >
+          <motion.h3 variants={fadeUp} className="font-serif text-3xl text-tcl-dark font-semibold text-center mb-10">
+            How TuLi Works
+          </motion.h3>
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {steps.map((step, i) => (
+              <motion.li key={step.title} variants={fadeUp} className="bg-white border border-tcl-border rounded-lg p-7 flex flex-col">
+                <span className="font-serif text-4xl text-tcl-gold leading-none mb-4">{i + 1}</span>
+                <h4 className="font-serif text-xl text-tcl-dark font-medium mb-2">{step.title}</h4>
+                <p className="text-tcl-gray text-sm leading-relaxed">{step.body}</p>
+              </motion.li>
+            ))}
+          </ol>
+          <motion.p
+            variants={fadeUp}
+            className="mt-8 mx-auto max-w-2xl text-center font-serif text-2xl text-tcl-dark"
+          >
+            <span className="text-tcl-gold-dark font-semibold">No fat is removed.</span> TuLi treats fat cells in place.
+          </motion.p>
         </motion.div>
 
         {/* Cards */}
