@@ -4,7 +4,7 @@ import ProcedureSection from '@/components/ProcedureSection';
 import TreatmentExpectationsSection from '@/components/TreatmentExpectationsSection';
 import CandidacySection from '@/components/CandidacySection';
 import ComparisonSection from '@/components/ComparisonSection';
-import PatientResultSection from '@/components/PatientResultSection';
+// import PatientResultSection from '@/components/PatientResultSection'; // archived 2026-10-29 — uncomment to restore
 // import AboutSection from '@/components/AboutSection';         // hidden 2026-10-29 — uncomment to restore
 // import BeforeAfterGallery from '@/components/BeforeAfterGallery';  // temporarily hidden
 // import VideoGallery from '@/components/VideoGallery';               // temporarily hidden
@@ -23,7 +23,7 @@ export default function Home() {
       <TreatmentExpectationsSection />
       <CandidacySection />
       <ComparisonSection />
-      <PatientResultSection />
+      {/* <PatientResultSection /> */}  {/* archived 2026-10-29 — uncomment to restore */}
       {/* <AboutSection /> */}        {/* hidden 2026-10-29 — uncomment to restore */}
       {/* <BeforeAfterGallery /> */}  {/* temporarily hidden — uncomment to restore */}
       {/* <VideoGallery /> */}         {/* temporarily hidden — uncomment to restore */}
