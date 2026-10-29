@@ -29,9 +29,20 @@ type FormData = {
 
 const goalOptions: FormData['primaryGoal'][] = ['Fat reduction', 'Skin tightening', 'Both', 'Not sure'];
 
+// Head-to-toe. Keep in sync with PROCEDURE_AREAS in the CRM (lib/types.ts).
 const areaOptions = [
-  'Arms', 'Chin', 'Male Chest', 'Stomach',
-  'Hips', 'Thighs', 'Legs', 'Female Breasts', 'Buttocks',
+  'Chin',
+  'Arms',
+  'Axilla ("Chicken Cutlet")',
+  'Male Chest',
+  'Female Breasts',
+  'Stomach',
+  'Mons',
+  'Hips',
+  'Thighs',
+  'Medial Thighs',
+  'Knees',
+  'Buttock (Banana Roll only)',
 ];
 
 export default function ConsultationForm() {
@@ -364,7 +375,7 @@ export default function ConsultationForm() {
               <div className="absolute inset-0 bg-gradient-to-t from-tcl-dark/40 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/95 backdrop-blur-sm rounded-lg p-6">
-                  <p className="font-serif text-lg text-tcl-dark mb-1">&ldquo;I started to see significant results in 2-4 weeks; by 12 weeks, the treatment effect was complete and I was thrilled with outcome.&rdquo;</p>
+                  <p className="font-serif text-lg text-tcl-dark mb-1">&ldquo;I started to see results at 2&ndash;3 months; by 6 months, the treatment effect was complete and I was thrilled with the outcome.&rdquo;</p>
                   <p className="text-sm text-tcl-gray">15-minute procedure. No down time. Lasting results.</p>
                 </div>
               </div>
