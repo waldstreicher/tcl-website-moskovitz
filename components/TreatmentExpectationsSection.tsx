@@ -32,7 +32,7 @@ const expectations = [
   },
   {
     icon: Droplets,
-    title: 'Mild swelling at first',
+    title: 'Mild swelling',
     body: 'Mild bloating or swelling may occur during the first few days and gradually resolves as the body absorbs the treated fat cells.',
   },
   {
@@ -43,7 +43,7 @@ const expectations = [
   {
     icon: Activity,
     title: 'No activity restrictions',
-    body: 'There are no activity restrictions following treatment. You can work out as soon as you’re ready.',
+    body: 'There are no activity restrictions following treatment. You can exercise as soon as you’re ready.',
   },
 ];
 

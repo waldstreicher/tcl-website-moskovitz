@@ -14,7 +14,7 @@ const rows = [
   { feature: 'Pain Level', tcl: 'Minimal', lipo: 'Significant', non: 'Minimal' },
   { feature: 'Down Time', tcl: 'None', lipo: '1–2 weeks', non: 'None' },
   { feature: 'Sessions Required', tcl: 'One', lipo: 'One', non: '3–6+ sessions' },
-  { feature: 'Fat Treated per Session', tcl: '5–10× more than CoolSculpting — similar to a moderate liposuction', lipo: 'Moderate', non: 'Minimal' },
+  { feature: 'Fat Treated per Session', tcl: '5–10× more than CoolSculpting\nsimilar to a moderate liposuction', lipo: 'Moderate', non: 'Minimal' },
   { feature: 'Post-Op Care', tcl: 'None', lipo: 'Extensive', non: 'None' },
 ];
 
@@ -74,7 +74,7 @@ export default function ComparisonSection() {
                   <td className="py-4 px-6 text-sm text-tcl-dark font-medium border-b border-tcl-border">
                     {row.feature}
                   </td>
-                  <td className="py-4 px-6 text-center text-sm font-semibold text-tcl-gold border-b border-tcl-border border-l-2 border-r-2 border-tcl-gold/20">
+                  <td className="py-4 px-6 text-center text-sm font-semibold text-tcl-gold border-b border-tcl-border border-l-2 border-r-2 border-tcl-gold/20 whitespace-pre-line">
                     {row.tcl}
                   </td>
                   <td className="py-4 px-6 text-center text-sm text-tcl-gray border-b border-tcl-border">
